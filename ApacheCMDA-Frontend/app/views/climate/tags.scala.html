@@ -15,7 +15,7 @@
  * limitations under the License.											   *
  *******************************************************************************@ 
 
-@(climateServices: List[metadata.ClimateService], climateServiceForm: play.data.Form[metadata.ClimateService])
+@(tags: List[metadata.Tag], tagForm: play.data.Form[metadata.Tag])
 
 @import helper._
 
@@ -32,7 +32,7 @@
 	
 	@flash_message()   
 	 
-    <h1>@climateServices.size() Climate Services</h1>
+    <h1>@tags.size() Tag List</h1>
 		<table class="table table-striped table-bordered table-condensed ex2 tablesorter" id = "csTable">
 		<thead>
 	<tr>
@@ -41,23 +41,16 @@
 		
 	</tr>
 	</thead>
-	@for(climateService <- climateServices){
+	@for(tag <- tags){
 	<tr>
-		<td><a href = "@{routes.TagController.oneService(climateService.getUrl())}"><font size="3">@climateService.getClimateServiceName()</a></font></td>
+		<td><a href = "#"><font size="3">@tag.getId()</a></font></td>
 
-		<td><span class="@climateService.getClimateServiceName() editable"  data-name='purpose'><font size="3">
-				@climateService.getPurpose() </font></span></td>
+		<td><span class="@tag.getName() editable"  data-name='purpose'><font size="3">
+				@tag.getName() </font></span></td>
 
 	</tr>
 	}
     </table>
  
-    
-     @if(false){
-		    
-	    @form(routes.TagController.downloadClimateService(), 'class -> "form-horizontal", 'role -> "form") {
-	
-	        <button type="submit" name="action" value="download">Download</button>
-	    }
-    }
+
 }

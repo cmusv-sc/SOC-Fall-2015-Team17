@@ -35,7 +35,7 @@ import views.html._
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-object tags extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[metadata.ClimateService],play.data.Form[metadata.ClimateService],play.api.templates.HtmlFormat.Appendable] {
+object tags extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[metadata.Tag],play.data.Form[metadata.Tag],play.api.templates.HtmlFormat.Appendable] {
 
     /*******************************************************************************
  * Licensed to the Apache Software Foundation (ASF) under one or more		   *
@@ -53,7 +53,7 @@ object tags extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,F
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
  *******************************************************************************/
-    def apply/*18.2*/(climateServices: List[metadata.ClimateService], climateServiceForm: play.data.Form[metadata.ClimateService]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*18.2*/(tags: List[metadata.Tag], tagForm: play.data.Form[metadata.Tag]):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 def /*22.2*/scripts/*22.9*/:play.api.templates.HtmlFormat.Appendable = {_display_(
@@ -66,7 +66,7 @@ Seq[Any](format.raw/*22.13*/("""
 	"""),format.raw/*27.2*/("""}"""),format.raw/*27.3*/(""");
 	</script>
 """)))};
-Seq[Any](format.raw/*18.111*/("""
+Seq[Any](format.raw/*18.67*/("""
 
 """),format.raw/*21.1*/("""
 """),format.raw/*29.2*/("""
@@ -75,7 +75,7 @@ Seq[Any](format.raw/*18.111*/("""
 	
 	"""),_display_(Seq[Any](/*33.3*/flash_message())),format.raw/*33.18*/("""   
 	 
-    <h1>"""),_display_(Seq[Any](/*35.10*/climateServices/*35.25*/.size())),format.raw/*35.32*/(""" Climate Services</h1>
+    <h1>"""),_display_(Seq[Any](/*35.10*/tags/*35.14*/.size())),format.raw/*35.21*/(""" Tag List</h1>
 		<table class="table table-striped table-bordered table-condensed ex2 tablesorter" id = "csTable">
 		<thead>
 	<tr>
@@ -84,43 +84,36 @@ Seq[Any](format.raw/*18.111*/("""
 		
 	</tr>
 	</thead>
-	"""),_display_(Seq[Any](/*44.3*/for(climateService <- climateServices) yield /*44.41*/{_display_(Seq[Any](format.raw/*44.42*/("""
+	"""),_display_(Seq[Any](/*44.3*/for(tag <- tags) yield /*44.19*/{_display_(Seq[Any](format.raw/*44.20*/("""
 	<tr>
-		<td><a href = """"),_display_(Seq[Any](/*46.19*/{routes.TagController.oneService(climateService.getUrl())})),format.raw/*46.77*/(""""><font size="3">"""),_display_(Seq[Any](/*46.95*/climateService/*46.109*/.getClimateServiceName())),format.raw/*46.133*/("""</a></font></td>
+		<td><a href = "#"><font size="3">"""),_display_(Seq[Any](/*46.37*/tag/*46.40*/.getId())),format.raw/*46.48*/("""</a></font></td>
 
-		<td><span class=""""),_display_(Seq[Any](/*48.21*/climateService/*48.35*/.getClimateServiceName())),format.raw/*48.59*/(""" editable"  data-name='purpose'><font size="3">
-				"""),_display_(Seq[Any](/*49.6*/climateService/*49.20*/.getPurpose())),format.raw/*49.33*/(""" </font></span></td>
+		<td><span class=""""),_display_(Seq[Any](/*48.21*/tag/*48.24*/.getName())),format.raw/*48.34*/(""" editable"  data-name='purpose'><font size="3">
+				"""),_display_(Seq[Any](/*49.6*/tag/*49.9*/.getName())),format.raw/*49.19*/(""" </font></span></td>
 
 	</tr>
 	""")))})),format.raw/*52.3*/("""
     </table>
  
-    
-     """),_display_(Seq[Any](/*56.7*/if(false)/*56.16*/{_display_(Seq[Any](format.raw/*56.17*/("""
-		    
-	    """),_display_(Seq[Any](/*58.7*/form(routes.TagController.downloadClimateService(), 'class -> "form-horizontal", 'role -> "form")/*58.104*/ {_display_(Seq[Any](format.raw/*58.106*/("""
-	
-	        <button type="submit" name="action" value="download">Download</button>
-	    """)))})),format.raw/*61.7*/("""
-    """)))})),format.raw/*62.6*/("""
-""")))})),format.raw/*63.2*/("""
+
+""")))})),format.raw/*56.2*/("""
 """))}
     }
     
-    def render(climateServices:List[metadata.ClimateService],climateServiceForm:play.data.Form[metadata.ClimateService]): play.api.templates.HtmlFormat.Appendable = apply(climateServices,climateServiceForm)
+    def render(tags:List[metadata.Tag],tagForm:play.data.Form[metadata.Tag]): play.api.templates.HtmlFormat.Appendable = apply(tags,tagForm)
     
-    def f:((List[metadata.ClimateService],play.data.Form[metadata.ClimateService]) => play.api.templates.HtmlFormat.Appendable) = (climateServices,climateServiceForm) => apply(climateServices,climateServiceForm)
+    def f:((List[metadata.Tag],play.data.Form[metadata.Tag]) => play.api.templates.HtmlFormat.Appendable) = (tags,tagForm) => apply(tags,tagForm)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Nov 05 13:11:41 PST 2015
+                    DATE: Thu Nov 05 14:25:45 PST 2015
                     SOURCE: /Users/zmhbh/Desktop/team/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/tags.scala.html
-                    HASH: 83576871f1eafc808e1f466de680e4e61e5f6a76
-                    MATRIX: 3239->1205|3442->1335|3457->1342|3542->1346|3594->1362|3609->1368|3671->1408|3773->1482|3802->1483|3832->1486|3860->1487|3916->1314|3945->1333|3973->1502|4011->1505|4053->1538|4093->1540|4133->1545|4170->1560|4222->1576|4246->1591|4275->1598|4543->1831|4597->1869|4636->1870|4697->1895|4777->1953|4831->1971|4855->1985|4902->2009|4976->2047|4999->2061|5045->2085|5133->2138|5156->2152|5191->2165|5253->2196|5315->2223|5333->2232|5372->2233|5421->2247|5528->2344|5569->2346|5689->2435|5726->2441|5759->2443
-                    LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|64->25|64->25|66->27|66->27|69->18|71->21|72->29|74->31|74->31|74->31|76->33|76->33|78->35|78->35|78->35|87->44|87->44|87->44|89->46|89->46|89->46|89->46|89->46|91->48|91->48|91->48|92->49|92->49|92->49|95->52|99->56|99->56|99->56|101->58|101->58|101->58|104->61|105->62|106->63
+                    HASH: d7d127e6dbaf91faf80b41897d764d1181107943
+                    MATRIX: 3217->1205|3376->1291|3391->1298|3476->1302|3528->1318|3543->1324|3605->1364|3707->1438|3736->1439|3766->1442|3794->1443|3849->1270|3878->1289|3906->1458|3944->1461|3986->1494|4026->1496|4066->1501|4103->1516|4155->1532|4168->1536|4197->1543|4457->1768|4489->1784|4528->1785|4607->1828|4619->1831|4649->1839|4723->1877|4735->1880|4767->1890|4855->1943|4866->1946|4898->1956|4960->1987|5009->2005
+                    LINES: 56->18|59->22|59->22|61->22|62->23|62->23|62->23|64->25|64->25|66->27|66->27|69->18|71->21|72->29|74->31|74->31|74->31|76->33|76->33|78->35|78->35|78->35|87->44|87->44|87->44|89->46|89->46|89->46|91->48|91->48|91->48|92->49|92->49|92->49|95->52|99->56
                     -- GENERATED --
                 */
             

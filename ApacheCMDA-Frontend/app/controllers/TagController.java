@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.metadata.ClimateService;
+import models.metadata.Tag;
 import play.Logger;
 import play.data.DynamicForm;
 import play.data.Form;
@@ -31,84 +32,23 @@ import util.APICall;
 import util.APICall.ResponseType;
 import views.html.climate.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
 public class TagController extends Controller {
 
-	final static Form<ClimateService> climateServiceForm = Form
-			.form(ClimateService.class);
+    final static Form<Tag> tagForm = Form
+            .form(Tag.class);
 
-	public static Result home(String email, String vfile, String dataset) {
-		return ok(home.render(email, vfile, dataset));
-	}
+    public static Result home(String email, String vfile, String dataset) {
+        return ok(home.render(email, vfile, dataset));
+    }
 
-	public static Result addClimateServices() {
-		return ok(addClimateServices.render(climateServiceForm));
-	}
 
-	public static Result tutorial() {
-		return ok(tutorial.render());
-	}
+    public static Result tags() {
+        return ok(tags.render(Tag.all(), tagForm));
+    }
 
-	public static Result climateServices() {
-		return ok(tags.render(ClimateService.all(),
-				climateServiceForm));
-	}
-	
-	public static Result mostRecentlyAddedClimateServices() {
-		return ok(mostRecentlyAddedServices.render(ClimateService.getMostRecentlyAdded(),
-				climateServiceForm));
-	}
-	
-	public static Result mostRecentlyUsedClimateServices() {
-		return ok(mostRecentlyUsedServices.render(ClimateService.getMostRecentlyUsed(),
-				climateServiceForm));
-	}
-	
-	public static Result mostPopularClimateServices() {
-		return ok(mostPopularServices.render(ClimateService.getMostPopular(),
-				climateServiceForm));
-	}
+/*
 
-	public static Result newClimateService() {
-		Form<ClimateService> dc = climateServiceForm.bindFromRequest();
-		ObjectNode jsonData = Json.newObject();
-		try {
-
-			String originalClimateServiceName = dc.field("Name").value();
-			String newClimateServiceName = originalClimateServiceName.replace(' ', '-');
-
-			if (newClimateServiceName != null && !newClimateServiceName.isEmpty()) {
-				jsonData.put("name", newClimateServiceName);
-			}
-			
-			jsonData.put("creatorId", 1);
-			jsonData.put("purpose", dc.field("Purpose").value());
-			jsonData.put("url", dc.field("Url").value());
-			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-			Date date = new Date();
-			jsonData.put("createTime", dateFormat.format(date));
-			jsonData.put("scenario", dc.field("Scenario").value());
-			jsonData.put("versionNo", dc.field("Version").value());
-			jsonData.put("rootServiceId", dc.field("Root_Service").value());
-			JsonNode response = ClimateService.create(jsonData);
-			Application.flashMsg(response);
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-			Application.flashMsg(APICall
-					.createResponse(ResponseType.CONVERSIONERROR));
-		} catch (Exception e) {
-			e.printStackTrace();
-			Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
-		}
-		return redirect("/tag/climateServices");
-	}
 
 	public static Result editClimateService() {
 
@@ -188,10 +128,11 @@ public class TagController extends Controller {
 				"attachment; filename=user.json");
 		return ok(file);
 	}
+*/
 
-	public static Result oneService(String url) {
-		return ok(oneService.render("/assets/html/" + url));
-	}
+    public static Result oneService(String url) {
+        return ok(oneService.render("/assets/html/" + url));
+    }
 
 
 }
