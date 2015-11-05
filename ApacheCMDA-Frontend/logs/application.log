@@ -1,3 +1,36 @@
-2015-09-21 16:00:57,338 - [INFO] - from play in pool-4-thread-1 
-Listening for HTTP on /0:0:0:0:0:0:0:0:9134
+2015-11-05 13:14:34,037 - [INFO] - from play in pool-4-thread-4 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-11-05 13:14:41,874 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-05 13:14:42,111 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-05 13:14:43,549 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-05 13:14:46,515 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-05 13:19:15,550 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-05 13:19:15,554 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-05 13:19:15,947 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-05 13:19:16,938 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-05 13:19:16,941 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-05 13:19:17,124 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-05 13:19:21,118 - [INFO] - from application in play-akka.actor.default-dispatcher-12 
+http://localhost:9034/climateService/getAllClimateServices/json
 

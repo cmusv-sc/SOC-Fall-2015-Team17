@@ -1,6 +1,6 @@
-// @SOURCE:/home/xingwei/SOC-Fall-2015/ApacheCMDA-Frontend/conf/routes
-// @HASH:a567abac742231815a5a9271612732827c1dd425
-// @DATE:Fri Sep 18 18:40:49 PDT 2015
+// @SOURCE:/Users/zmhbh/Desktop/team/SOC-Fall-2015/ApacheCMDA-Frontend/conf/routes
+// @HASH:86443e11fe0ef3e22a1e832e69dd313c09fb9fa4
+// @DATE:Thu Nov 05 13:18:32 PST 2015
 
 
 import play.core._
@@ -113,21 +113,69 @@ private[this] lazy val controllers_ClimateServiceController_oneService20 = Route
         
 
 // @LINE:35
-private[this] lazy val controllers_DatasetController_datasetList21 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/datasets"))))
+private[this] lazy val controllers_TagController_home21 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag"))))
         
 
 // @LINE:36
-private[this] lazy val controllers_DatasetController_searchDataset22 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/searchDataSet"))))
+private[this] lazy val controllers_TagController_tutorial22 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/tutorial"))))
         
 
 // @LINE:37
-private[this] lazy val controllers_DatasetController_getSearchResult23 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/getSearchResult"))))
+private[this] lazy val controllers_TagController_climateServices23 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/climateServices"))))
+        
+
+// @LINE:38
+private[this] lazy val controllers_TagController_mostRecentlyAddedClimateServices24 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/mostRecentlyAddedClimateServices"))))
+        
+
+// @LINE:39
+private[this] lazy val controllers_TagController_mostRecentlyUsedClimateServices25 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/mostRecentlyUsedClimateServices"))))
         
 
 // @LINE:40
-private[this] lazy val controllers_Assets_at24 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_TagController_mostPopularClimateServices26 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/mostPopularClimateServices"))))
         
-def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """home""","""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix,"""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bugs""","""controllers.BugReportController.reports()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """newReport""","""controllers.BugReportController.newReport()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bug/list""","""controllers.BugReportController.list()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """delete/report""","""controllers.BugReportController.deleteReport()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """solve/report""","""controllers.BugReportController.solveReport()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """aboutus""","""controllers.AboutusController.aboutUs()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """aboutProject""","""controllers.AboutusController.aboutProject()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate""","""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/tutorial""","""controllers.ClimateServiceController.tutorial()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/climateServices""","""controllers.ClimateServiceController.climateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostRecentlyAddedClimateServices""","""controllers.ClimateServiceController.mostRecentlyAddedClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostRecentlyUsedClimateServices""","""controllers.ClimateServiceController.mostRecentlyUsedClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostPopularClimateServices""","""controllers.ClimateServiceController.mostPopularClimateServices()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/new/climateServices""","""controllers.ClimateServiceController.newClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/delete/climateServices""","""controllers.ClimateServiceController.deleteClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/download/climateServices""","""controllers.ClimateServiceController.downloadClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/edit/climateServices""","""controllers.ClimateServiceController.editClimateService()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/new/climateServices""","""controllers.ClimateServiceController.addClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/oneService""","""controllers.ClimateServiceController.oneService(url:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/datasets""","""controllers.DatasetController.datasetList()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/searchDataSet""","""controllers.DatasetController.searchDataset()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/getSearchResult""","""controllers.DatasetController.getSearchResult()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+
+// @LINE:41
+private[this] lazy val controllers_TagController_newClimateService27 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/new/climateServices"))))
+        
+
+// @LINE:42
+private[this] lazy val controllers_TagController_deleteClimateService28 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/delete/climateServices"))))
+        
+
+// @LINE:43
+private[this] lazy val controllers_TagController_downloadClimateService29 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/download/climateServices"))))
+        
+
+// @LINE:44
+private[this] lazy val controllers_TagController_editClimateService30 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/edit/climateServices"))))
+        
+
+// @LINE:45
+private[this] lazy val controllers_TagController_addClimateServices31 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/new/climateServices"))))
+        
+
+// @LINE:46
+private[this] lazy val controllers_TagController_oneService32 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tag/oneService"))))
+        
+
+// @LINE:49
+private[this] lazy val controllers_DatasetController_datasetList33 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/datasets"))))
+        
+
+// @LINE:50
+private[this] lazy val controllers_DatasetController_searchDataset34 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/searchDataSet"))))
+        
+
+// @LINE:51
+private[this] lazy val controllers_DatasetController_getSearchResult35 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("climate/getSearchResult"))))
+        
+
+// @LINE:54
+private[this] lazy val controllers_Assets_at36 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+        
+def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """home""","""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix,"""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bugs""","""controllers.BugReportController.reports()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """newReport""","""controllers.BugReportController.newReport()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bug/list""","""controllers.BugReportController.list()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """delete/report""","""controllers.BugReportController.deleteReport()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """solve/report""","""controllers.BugReportController.solveReport()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """aboutus""","""controllers.AboutusController.aboutUs()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """aboutProject""","""controllers.AboutusController.aboutProject()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate""","""controllers.ClimateServiceController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/tutorial""","""controllers.ClimateServiceController.tutorial()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/climateServices""","""controllers.ClimateServiceController.climateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostRecentlyAddedClimateServices""","""controllers.ClimateServiceController.mostRecentlyAddedClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostRecentlyUsedClimateServices""","""controllers.ClimateServiceController.mostRecentlyUsedClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/mostPopularClimateServices""","""controllers.ClimateServiceController.mostPopularClimateServices()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/new/climateServices""","""controllers.ClimateServiceController.newClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/delete/climateServices""","""controllers.ClimateServiceController.deleteClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/download/climateServices""","""controllers.ClimateServiceController.downloadClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/edit/climateServices""","""controllers.ClimateServiceController.editClimateService()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/new/climateServices""","""controllers.ClimateServiceController.addClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/oneService""","""controllers.ClimateServiceController.oneService(url:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag""","""controllers.TagController.home(email:String ?= null, vfile:String ?= null, dataset:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/tutorial""","""controllers.TagController.tutorial()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/climateServices""","""controllers.TagController.climateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/mostRecentlyAddedClimateServices""","""controllers.TagController.mostRecentlyAddedClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/mostRecentlyUsedClimateServices""","""controllers.TagController.mostRecentlyUsedClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/mostPopularClimateServices""","""controllers.TagController.mostPopularClimateServices()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/new/climateServices""","""controllers.TagController.newClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/delete/climateServices""","""controllers.TagController.deleteClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/download/climateServices""","""controllers.TagController.downloadClimateService()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/edit/climateServices""","""controllers.TagController.editClimateService()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/new/climateServices""","""controllers.TagController.addClimateServices()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tag/oneService""","""controllers.TagController.oneService(url:String ?= null)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/datasets""","""controllers.DatasetController.datasetList()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/searchDataSet""","""controllers.DatasetController.searchDataset()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """climate/getSearchResult""","""controllers.DatasetController.getSearchResult()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -304,31 +352,127 @@ case controllers_ClimateServiceController_oneService20(params) => {
         
 
 // @LINE:35
-case controllers_DatasetController_datasetList21(params) => {
+case controllers_TagController_home21(params) => {
+   call(params.fromQuery[String]("email", Some(null)), params.fromQuery[String]("vfile", Some(null)), params.fromQuery[String]("dataset", Some(null))) { (email, vfile, dataset) =>
+        invokeHandler(controllers.TagController.home(email, vfile, dataset), HandlerDef(this, "controllers.TagController", "home", Seq(classOf[String], classOf[String], classOf[String]),"GET", """ Tag Model""", Routes.prefix + """tag"""))
+   }
+}
+        
+
+// @LINE:36
+case controllers_TagController_tutorial22(params) => {
+   call { 
+        invokeHandler(controllers.TagController.tutorial(), HandlerDef(this, "controllers.TagController", "tutorial", Nil,"GET", """""", Routes.prefix + """tag/tutorial"""))
+   }
+}
+        
+
+// @LINE:37
+case controllers_TagController_climateServices23(params) => {
+   call { 
+        invokeHandler(controllers.TagController.climateServices(), HandlerDef(this, "controllers.TagController", "climateServices", Nil,"GET", """""", Routes.prefix + """tag/climateServices"""))
+   }
+}
+        
+
+// @LINE:38
+case controllers_TagController_mostRecentlyAddedClimateServices24(params) => {
+   call { 
+        invokeHandler(controllers.TagController.mostRecentlyAddedClimateServices(), HandlerDef(this, "controllers.TagController", "mostRecentlyAddedClimateServices", Nil,"GET", """""", Routes.prefix + """tag/mostRecentlyAddedClimateServices"""))
+   }
+}
+        
+
+// @LINE:39
+case controllers_TagController_mostRecentlyUsedClimateServices25(params) => {
+   call { 
+        invokeHandler(controllers.TagController.mostRecentlyUsedClimateServices(), HandlerDef(this, "controllers.TagController", "mostRecentlyUsedClimateServices", Nil,"GET", """""", Routes.prefix + """tag/mostRecentlyUsedClimateServices"""))
+   }
+}
+        
+
+// @LINE:40
+case controllers_TagController_mostPopularClimateServices26(params) => {
+   call { 
+        invokeHandler(controllers.TagController.mostPopularClimateServices(), HandlerDef(this, "controllers.TagController", "mostPopularClimateServices", Nil,"GET", """""", Routes.prefix + """tag/mostPopularClimateServices"""))
+   }
+}
+        
+
+// @LINE:41
+case controllers_TagController_newClimateService27(params) => {
+   call { 
+        invokeHandler(controllers.TagController.newClimateService(), HandlerDef(this, "controllers.TagController", "newClimateService", Nil,"POST", """""", Routes.prefix + """tag/new/climateServices"""))
+   }
+}
+        
+
+// @LINE:42
+case controllers_TagController_deleteClimateService28(params) => {
+   call { 
+        invokeHandler(controllers.TagController.deleteClimateService(), HandlerDef(this, "controllers.TagController", "deleteClimateService", Nil,"POST", """""", Routes.prefix + """tag/delete/climateServices"""))
+   }
+}
+        
+
+// @LINE:43
+case controllers_TagController_downloadClimateService29(params) => {
+   call { 
+        invokeHandler(controllers.TagController.downloadClimateService(), HandlerDef(this, "controllers.TagController", "downloadClimateService", Nil,"POST", """""", Routes.prefix + """tag/download/climateServices"""))
+   }
+}
+        
+
+// @LINE:44
+case controllers_TagController_editClimateService30(params) => {
+   call { 
+        invokeHandler(controllers.TagController.editClimateService(), HandlerDef(this, "controllers.TagController", "editClimateService", Nil,"POST", """""", Routes.prefix + """tag/edit/climateServices"""))
+   }
+}
+        
+
+// @LINE:45
+case controllers_TagController_addClimateServices31(params) => {
+   call { 
+        invokeHandler(controllers.TagController.addClimateServices(), HandlerDef(this, "controllers.TagController", "addClimateServices", Nil,"GET", """""", Routes.prefix + """tag/new/climateServices"""))
+   }
+}
+        
+
+// @LINE:46
+case controllers_TagController_oneService32(params) => {
+   call(params.fromQuery[String]("url", Some(null))) { (url) =>
+        invokeHandler(controllers.TagController.oneService(url), HandlerDef(this, "controllers.TagController", "oneService", Seq(classOf[String]),"GET", """""", Routes.prefix + """tag/oneService"""))
+   }
+}
+        
+
+// @LINE:49
+case controllers_DatasetController_datasetList33(params) => {
    call { 
         invokeHandler(controllers.DatasetController.datasetList(), HandlerDef(this, "controllers.DatasetController", "datasetList", Nil,"GET", """Keyword search""", Routes.prefix + """climate/datasets"""))
    }
 }
         
 
-// @LINE:36
-case controllers_DatasetController_searchDataset22(params) => {
+// @LINE:50
+case controllers_DatasetController_searchDataset34(params) => {
    call { 
         invokeHandler(controllers.DatasetController.searchDataset(), HandlerDef(this, "controllers.DatasetController", "searchDataset", Nil,"GET", """""", Routes.prefix + """climate/searchDataSet"""))
    }
 }
         
 
-// @LINE:37
-case controllers_DatasetController_getSearchResult23(params) => {
+// @LINE:51
+case controllers_DatasetController_getSearchResult35(params) => {
    call { 
         invokeHandler(controllers.DatasetController.getSearchResult(), HandlerDef(this, "controllers.DatasetController", "getSearchResult", Nil,"GET", """""", Routes.prefix + """climate/getSearchResult"""))
    }
 }
         
 
-// @LINE:40
-case controllers_Assets_at24(params) => {
+// @LINE:54
+case controllers_Assets_at36(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
    }

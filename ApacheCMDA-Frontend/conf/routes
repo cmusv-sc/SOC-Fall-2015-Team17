@@ -31,6 +31,20 @@ POST		/climate/download/climateServices					controllers.ClimateServiceController
 POST		/climate/edit/climateServices						controllers.ClimateServiceController.editClimateService()
 GET			/climate/new/climateServices						controllers.ClimateServiceController.addClimateServices()
 GET			/climate/oneService									controllers.ClimateServiceController.oneService(url ?= null)
+# Tag Model
+GET			/tag											controllers.TagController.home(email ?= null, vfile ?= null, dataset ?= null)
+GET			/tag/tutorial									controllers.TagController.tutorial()
+GET			/tag/climateServices							controllers.TagController.climateServices()
+GET			/tag/mostRecentlyAddedClimateServices			controllers.TagController.mostRecentlyAddedClimateServices()
+GET			/tag/mostRecentlyUsedClimateServices			controllers.TagController.mostRecentlyUsedClimateServices()
+GET			/tag/mostPopularClimateServices					controllers.TagController.mostPopularClimateServices()
+POST		/tag/new/climateServices    					controllers.TagController.newClimateService()
+POST    	/tag/delete/climateServices   					controllers.TagController.deleteClimateService()
+POST		/tag/download/climateServices					controllers.TagController.downloadClimateService()
+POST		/tag/edit/climateServices						controllers.TagController.editClimateService()
+GET			/tag/new/climateServices						controllers.TagController.addClimateServices()
+GET			/tag/oneService									controllers.TagController.oneService(url ?= null)
+
 #Keyword search
 GET 		/climate/datasets									controllers.DatasetController.datasetList()
 GET			/climate/searchDataSet 					 			controllers.DatasetController.searchDataset()
