@@ -12,7 +12,8 @@ import java.util.List;
 public class Tag {
     private int id;
     private String name;
-    private static final String GET_TAGS_CALL = "http://www.codeee.com:8080/workflow/tags";
+//    private static final String GET_TAGS_CALL = "http://www.codeee.com:8080/workflow/tags";
+private static final String GET_TAGS_CALL = "http://localhost:9034/tag/getAllTags/json";
 
     public int getId() {
         return id;

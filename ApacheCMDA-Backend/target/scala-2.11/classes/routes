@@ -28,6 +28,14 @@ POST          /instrument/addInstrument                                         
 PUT           /instrument/updateInstrument/id/:id                                                       @controllers.InstrumentController.updateInstrumentById(id: Long)
 DELETE        /instrument/deleteInstrument/id/:id                                                       @controllers.InstrumentController.deleteInstrument(id: Long)
 
+
+#Tag
+GET           /tag/getAllTags/json                                                                      @controllers.TagController.getAllTags(format: String="json")
+GET           /tag/getTag/id/:id/json                                                                   @controllers.TagController.getTag(id: Long, format: String="json")
+POST          /tag/addTag                                                                               @controllers.TagController.addTag
+
+
+
 # Dataset
 GET           /dataset/getAllDatasets/json                                                              @controllers.DatasetController.getAllDatasets(format: String="json")
 GET           /dataset/getDataset/id/:id/json                                                           @controllers.DatasetController.getDataset(id: Long, format: String="json")
