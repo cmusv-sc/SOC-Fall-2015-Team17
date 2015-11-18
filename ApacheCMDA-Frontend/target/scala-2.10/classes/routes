@@ -31,6 +31,12 @@ POST		/climate/download/climateServices					controllers.ClimateServiceController
 POST		/climate/edit/climateServices						controllers.ClimateServiceController.editClimateService()
 GET			/climate/new/climateServices						controllers.ClimateServiceController.addClimateServices()
 GET			/climate/oneService									controllers.ClimateServiceController.oneService(url ?= null)
+
+#Workflow
+GET         /workflow/createWorkflow                            controllers.WorkflowController.createWorkflow()
+GET         /workflows                                          controllers.WorkflowController.workflows()
+GET         /workflow/workflowCreating                          controllers.WorkflowController.handleCreateWorkflow()
+
 # Tag Model
 GET			/tag											controllers.TagController.home(email ?= null, vfile ?= null, dataset ?= null)
 GET			/tag/tags							            controllers.TagController.tags()

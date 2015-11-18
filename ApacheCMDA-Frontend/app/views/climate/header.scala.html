@@ -34,12 +34,24 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="dropdown"><a href="#"
+                                        class="dropdown-toggle" data-toggle="dropdown">Workflow<b
+                        class="caret"></b></a>
+                    <ul class="dropdown-menu">
+
+                        <li><a href="@routes.WorkflowController.workflows()">Workflow List</a></li>
+                        <li><a href="@routes.TagController.tags()">Tag List</a></li>
+                        <li><a href="@routes.WorkflowController.createWorkflow()">Create Workflow</a></li>
+                    </ul>
+
+                </li>
+
+
+                <li class="dropdown"><a href="#"
                                         class="dropdown-toggle" data-toggle="dropdown">Service<b
                         class="caret"></b></a>
                     <ul class="dropdown-menu">
 
                         <li><a href="@routes.ClimateServiceController.climateServices()">Service List</a></li>
-                        <li><a href="@routes.TagController.tags()">Tag List</a></li>
                     </ul>
 
                 </li>

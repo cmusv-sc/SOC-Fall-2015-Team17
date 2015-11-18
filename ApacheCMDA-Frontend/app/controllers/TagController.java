@@ -17,19 +17,10 @@
 
 package controllers;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import models.metadata.ClimateService;
 import models.metadata.Tag;
-import play.Logger;
-import play.data.DynamicForm;
 import play.data.Form;
-import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
-import util.APICall;
-import util.APICall.ResponseType;
 import views.html.climate.*;
 
 

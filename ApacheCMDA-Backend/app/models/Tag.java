@@ -1,9 +1,7 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by zmhbh on 11/18/15.
@@ -14,6 +12,10 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "TagAndWorkflow", joinColumns = { @JoinColumn(name ="tagId", referencedColumnName = "id")}, inverseJoinColumns = { @JoinColumn(name = "workflowId", referencedColumnName = "id") })
+    private List<Workflow> workflows;
+
 
     public Tag(){
 
