@@ -36,6 +36,7 @@ GET			/climate/oneService									controllers.ClimateServiceController.oneServic
 GET         /workflow/createWorkflow                            controllers.WorkflowController.createWorkflow()
 GET         /workflows                                          controllers.WorkflowController.workflows()
 GET         /workflow/workflowCreating                          controllers.WorkflowController.handleCreateWorkflow()
+GET         /workflow/linkTags                                  controllers.WorkflowController.linkTags()
 
 # Tag Model
 GET			/tag											controllers.TagController.home(email ?= null, vfile ?= null, dataset ?= null)

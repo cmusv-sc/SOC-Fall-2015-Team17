@@ -2,6 +2,7 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import models.DataSet;
 import models.metadata.ClimateService;
 import models.metadata.Tag;
 import models.metadata.Workflow;
@@ -12,7 +13,11 @@ import play.mvc.Result;
 import util.APICall;
 import views.html.climate.addClimateServices;
 import views.html.climate.createWorkflow;
+import views.html.climate.linkTags;
 import views.html.climate.workflows;
+
+import java.text.SimpleDateFormat;
+
 /**
  * Created by zmhbh on 11/18/15.
  */
@@ -28,6 +33,30 @@ public class WorkflowController extends Controller{
     }
 
     public static Result handleCreateWorkflow(){
+        Form<Workflow> dc = workflowForm.bindFromRequest();
+        ObjectNode jsonData = Json.newObject();
+        String title = "";
+        String description = "";
+        String image = "";
+        String contributor = "";
+        String instruction = "";
+        String dataset = "";
+        try {
+            title = dc.field("Title").value();
+            description = dc.field("Description").value();
+            image = dc.field("Image").value();
+            contributor = dc.field("Contributor").value();
+            instruction = dc.field("Instruction").value();
+            dataset = dc.field("Dataset").value();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return ok(linkTags.render(TagController.tagForm));
+       // return redirect("/workflows");
+    }
+
+    public static Result linkTags(){
         return redirect("/workflows");
     }
 
