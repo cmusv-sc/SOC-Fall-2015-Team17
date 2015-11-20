@@ -29,6 +29,12 @@ PUT           /instrument/updateInstrument/id/:id                               
 DELETE        /instrument/deleteInstrument/id/:id                                                       @controllers.InstrumentController.deleteInstrument(id: Long)
 
 
+#Workflow
+GET           /workflow/getAllWorkflows/json                                                            @controllers.WorkflowController.getAllWorkflows(format: String="json")
+GET           /workflow/getWorkflow/id/:id                                                         @controllers.WorkflowController.getWorkflow(id: Long, format: String="json")
+POST          /workflow/addWorkflow                                                                     @controllers.WorkflowController.addWorkflow
+
+
 #Tag
 GET           /tag/getAllTags/json                                                                      @controllers.TagController.getAllTags(format: String="json")
 GET           /tag/getTag/id/:id/json                                                                   @controllers.TagController.getTag(id: Long, format: String="json")

@@ -1,6 +1,6 @@
 // @SOURCE:/Users/zmhbh/Desktop/team/SOC-Fall-2015/ApacheCMDA-Frontend/conf/routes
-// @HASH:ebb1f9cd99ea8d40c274757cc5f84646e2b7a045
-// @DATE:Wed Nov 18 17:24:47 EST 2015
+// @HASH:10578c5ec55619d43877ea896d9e42a6fe544728
+// @DATE:Fri Nov 20 11:50:59 EST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,13 +13,14 @@ import play.libs.F
 import Router.queryString
 
 
-// @LINE:52
+// @LINE:53
+// @LINE:50
 // @LINE:49
 // @LINE:48
-// @LINE:47
+// @LINE:45
 // @LINE:44
 // @LINE:43
-// @LINE:42
+// @LINE:40
 // @LINE:39
 // @LINE:38
 // @LINE:37
@@ -47,11 +48,11 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:52
+// @LINE:53
 class ReverseAssets {
     
 
-// @LINE:52
+// @LINE:53
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -60,25 +61,25 @@ def at(file:String): Call = {
 }
                           
 
+// @LINE:45
 // @LINE:44
 // @LINE:43
-// @LINE:42
 class ReverseTagController {
     
 
-// @LINE:44
+// @LINE:45
 def oneService(url:String = null): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "tag/oneService" + queryString(List(if(url == null) None else Some(implicitly[QueryStringBindable[String]].unbind("url", url)))))
 }
                                                 
 
-// @LINE:43
+// @LINE:44
 def tags(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "tag/tags")
 }
                                                 
 
-// @LINE:42
+// @LINE:43
 def home(email:String = null, vfile:String = null, dataset:String = null): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "tag" + queryString(List(if(email == null) None else Some(implicitly[QueryStringBindable[String]].unbind("email", email)), if(vfile == null) None else Some(implicitly[QueryStringBindable[String]].unbind("vfile", vfile)), if(dataset == null) None else Some(implicitly[QueryStringBindable[String]].unbind("dataset", dataset)))))
 }
@@ -107,6 +108,7 @@ def aboutUs(): Call = {
 }
                           
 
+// @LINE:40
 // @LINE:39
 // @LINE:38
 // @LINE:37
@@ -114,9 +116,9 @@ def aboutUs(): Call = {
 class ReverseWorkflowController {
     
 
-// @LINE:38
-def handleCreateWorkflow(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "workflow/workflowCreating")
+// @LINE:40
+def displayWorkflow(id:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "workflow/disWorkflow" + queryString(List(Some(implicitly[QueryStringBindable[Long]].unbind("id", id)))))
 }
                                                 
 
@@ -126,15 +128,21 @@ def workflows(): Call = {
 }
                                                 
 
-// @LINE:39
-def linkTags(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "workflow/linkTags")
-}
-                                                
-
 // @LINE:36
 def createWorkflow(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "workflow/createWorkflow")
+}
+                                                
+
+// @LINE:38
+def handleCreateWorkflow(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "workflow/workflowCreating")
+}
+                                                
+
+// @LINE:39
+def linkTags(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "workflow/linkTags")
 }
                                                 
     
@@ -182,25 +190,25 @@ def newReport(): Call = {
 }
                           
 
+// @LINE:50
 // @LINE:49
 // @LINE:48
-// @LINE:47
 class ReverseDatasetController {
     
 
-// @LINE:49
+// @LINE:50
 def getSearchResult(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/getSearchResult")
 }
                                                 
 
-// @LINE:48
+// @LINE:49
 def searchDataset(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/searchDataSet")
 }
                                                 
 
-// @LINE:47
+// @LINE:48
 def datasetList(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/datasets")
 }
@@ -316,13 +324,14 @@ def deleteClimateService(): Call = {
                   
 
 
-// @LINE:52
+// @LINE:53
+// @LINE:50
 // @LINE:49
 // @LINE:48
-// @LINE:47
+// @LINE:45
 // @LINE:44
 // @LINE:43
-// @LINE:42
+// @LINE:40
 // @LINE:39
 // @LINE:38
 // @LINE:37
@@ -350,11 +359,11 @@ def deleteClimateService(): Call = {
 // @LINE:6
 package controllers.javascript {
 
-// @LINE:52
+// @LINE:53
 class ReverseAssets {
     
 
-// @LINE:52
+// @LINE:53
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -368,13 +377,13 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:45
 // @LINE:44
 // @LINE:43
-// @LINE:42
 class ReverseTagController {
     
 
-// @LINE:44
+// @LINE:45
 def oneService : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.TagController.oneService",
    """
@@ -385,7 +394,7 @@ def oneService : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:43
+// @LINE:44
 def tags : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.TagController.tags",
    """
@@ -396,7 +405,7 @@ def tags : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:42
+// @LINE:43
 def home : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.TagController.home",
    """
@@ -440,6 +449,7 @@ def aboutUs : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:40
 // @LINE:39
 // @LINE:38
 // @LINE:37
@@ -447,12 +457,12 @@ def aboutUs : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseWorkflowController {
     
 
-// @LINE:38
-def handleCreateWorkflow : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.WorkflowController.handleCreateWorkflow",
+// @LINE:40
+def displayWorkflow : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.WorkflowController.displayWorkflow",
    """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/workflowCreating"})
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/disWorkflow" + _qS([(""" + implicitly[QueryStringBindable[Long]].javascriptUnbind + """)("id", id)])})
       }
    """
 )
@@ -469,23 +479,34 @@ def workflows : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:39
-def linkTags : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.WorkflowController.linkTags",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/linkTags"})
-      }
-   """
-)
-                        
-
 // @LINE:36
 def createWorkflow : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.WorkflowController.createWorkflow",
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/createWorkflow"})
+      }
+   """
+)
+                        
+
+// @LINE:38
+def handleCreateWorkflow : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.WorkflowController.handleCreateWorkflow",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/workflowCreating"})
+      }
+   """
+)
+                        
+
+// @LINE:39
+def linkTags : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.WorkflowController.linkTags",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/linkTags"})
       }
    """
 )
@@ -560,13 +581,13 @@ def newReport : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:50
 // @LINE:49
 // @LINE:48
-// @LINE:47
 class ReverseDatasetController {
     
 
-// @LINE:49
+// @LINE:50
 def getSearchResult : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DatasetController.getSearchResult",
    """
@@ -577,7 +598,7 @@ def getSearchResult : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:48
+// @LINE:49
 def searchDataset : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DatasetController.searchDataset",
    """
@@ -588,7 +609,7 @@ def searchDataset : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:47
+// @LINE:48
 def datasetList : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DatasetController.datasetList",
    """
@@ -767,13 +788,14 @@ def deleteClimateService : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:52
+// @LINE:53
+// @LINE:50
 // @LINE:49
 // @LINE:48
-// @LINE:47
+// @LINE:45
 // @LINE:44
 // @LINE:43
-// @LINE:42
+// @LINE:40
 // @LINE:39
 // @LINE:38
 // @LINE:37
@@ -802,11 +824,11 @@ def deleteClimateService : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:52
+// @LINE:53
 class ReverseAssets {
     
 
-// @LINE:52
+// @LINE:53
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -815,25 +837,25 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
+// @LINE:45
 // @LINE:44
 // @LINE:43
-// @LINE:42
 class ReverseTagController {
     
 
-// @LINE:44
+// @LINE:45
 def oneService(url:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.TagController.oneService(url), HandlerDef(this, "controllers.TagController", "oneService", Seq(classOf[String]), "GET", """""", _prefix + """tag/oneService""")
 )
                       
 
-// @LINE:43
+// @LINE:44
 def tags(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.TagController.tags(), HandlerDef(this, "controllers.TagController", "tags", Seq(), "GET", """""", _prefix + """tag/tags""")
 )
                       
 
-// @LINE:42
+// @LINE:43
 def home(email:String, vfile:String, dataset:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.TagController.home(email, vfile, dataset), HandlerDef(this, "controllers.TagController", "home", Seq(classOf[String], classOf[String], classOf[String]), "GET", """ Tag Model""", _prefix + """tag""")
 )
@@ -862,6 +884,7 @@ def aboutUs(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:40
 // @LINE:39
 // @LINE:38
 // @LINE:37
@@ -869,9 +892,9 @@ def aboutUs(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 class ReverseWorkflowController {
     
 
-// @LINE:38
-def handleCreateWorkflow(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.WorkflowController.handleCreateWorkflow(), HandlerDef(this, "controllers.WorkflowController", "handleCreateWorkflow", Seq(), "GET", """""", _prefix + """workflow/workflowCreating""")
+// @LINE:40
+def displayWorkflow(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.WorkflowController.displayWorkflow(id), HandlerDef(this, "controllers.WorkflowController", "displayWorkflow", Seq(classOf[Long]), "GET", """""", _prefix + """workflow/disWorkflow""")
 )
                       
 
@@ -881,15 +904,21 @@ def workflows(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:39
-def linkTags(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.WorkflowController.linkTags(), HandlerDef(this, "controllers.WorkflowController", "linkTags", Seq(), "GET", """""", _prefix + """workflow/linkTags""")
-)
-                      
-
 // @LINE:36
 def createWorkflow(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.WorkflowController.createWorkflow(), HandlerDef(this, "controllers.WorkflowController", "createWorkflow", Seq(), "GET", """Workflow""", _prefix + """workflow/createWorkflow""")
+)
+                      
+
+// @LINE:38
+def handleCreateWorkflow(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.WorkflowController.handleCreateWorkflow(), HandlerDef(this, "controllers.WorkflowController", "handleCreateWorkflow", Seq(), "GET", """""", _prefix + """workflow/workflowCreating""")
+)
+                      
+
+// @LINE:39
+def linkTags(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.WorkflowController.linkTags(), HandlerDef(this, "controllers.WorkflowController", "linkTags", Seq(), "GET", """""", _prefix + """workflow/linkTags""")
 )
                       
     
@@ -937,25 +966,25 @@ def newReport(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:50
 // @LINE:49
 // @LINE:48
-// @LINE:47
 class ReverseDatasetController {
     
 
-// @LINE:49
+// @LINE:50
 def getSearchResult(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DatasetController.getSearchResult(), HandlerDef(this, "controllers.DatasetController", "getSearchResult", Seq(), "GET", """""", _prefix + """climate/getSearchResult""")
 )
                       
 
-// @LINE:48
+// @LINE:49
 def searchDataset(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DatasetController.searchDataset(), HandlerDef(this, "controllers.DatasetController", "searchDataset", Seq(), "GET", """""", _prefix + """climate/searchDataSet""")
 )
                       
 
-// @LINE:47
+// @LINE:48
 def datasetList(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DatasetController.datasetList(), HandlerDef(this, "controllers.DatasetController", "datasetList", Seq(), "GET", """Keyword search""", _prefix + """climate/datasets""")
 )

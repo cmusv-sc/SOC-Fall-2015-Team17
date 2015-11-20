@@ -38,15 +38,18 @@
     <tr>
         <th class="col-md-2">Workflow ID</td>
         <th class="col-md-4">Workflow title</td>
+        <th class="clo-md-4">Workflow Description</th>
 
     </tr>
     </thead>
     @for(workflow <- workflows){
     <tr>
-        <td><a href = "#"><font size="3">@workflow.getId()</a></font></td>
+        <td><a href = "@routes.WorkflowController.displayWorkflow(workflow.getId())"><font size="3">@workflow.getId()</a></font></td>
 
-        <td><span class="@workflow.getTitle() editable"  data-name='purpose'><font size="3">
-            @workflow.getTitle() </font></span></td>
+        <td><a href = "@routes.WorkflowController.displayWorkflow(workflow.getId())"><font size="3">@workflow.getTitle()</a></font></td>
+
+        <td><span class="@workflow.getDescription() editable"  data-name='purpose'><font size="3">
+            @workflow.getDescription() </font></span></td>
 
     </tr>
     }

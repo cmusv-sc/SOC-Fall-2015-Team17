@@ -15,7 +15,7 @@
 * limitations under the License.                                               *
 *******************************************************************************@
 
-@(tagForm: play.data.Form[metadata.Tag])
+@(workflowId:String, tagForm: play.data.Form[metadata.Tag])
 @import helper._
 
 @scripts = {
@@ -32,6 +32,16 @@
 <h1 style="margin-left:490px">Link tags</h1>
 @helper.form(routes.WorkflowController.linkTags()) {
 <div class="ui-widget col-sm-offset-3 col-sm-7">
+
+    <div class="form-group" style="display:none;">
+        @inputText(
+        tagForm("workflowId").copy(value=Some(workflowId)),
+        'class -> "form-control",
+        'size->70,
+        '_label -> "Tags(separated by ',')"
+        )
+    </div>
+
     <div class="form-group">
         @inputText(
         tagForm("tags"),

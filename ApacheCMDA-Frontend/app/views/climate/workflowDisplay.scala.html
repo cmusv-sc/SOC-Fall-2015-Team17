@@ -1,0 +1,123 @@
+@(workflow: metadata.Workflow)
+
+@import helper._
+
+@scripts = {
+<script src='@routes.Assets.at("javascripts/edit_button.js")'></script>
+<script type="text/javascript">
+          $(document).ready(function(){
+
+          });
+  </script>
+}
+
+@main("Workflows", scripts) {
+
+@flash_message()
+
+
+<div class="container">
+
+
+    <body>
+
+    <h2 class="text-center">Workflow Details</h2>
+
+    <div class="container col-md-6">
+        <form>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="col-md-2">Item</th>
+                    <th class="col-md-4">Value</th>
+
+                </tr>
+                </thead>
+                <tbody id="dynamicTBody">
+
+                <tr id="Title_trID">
+                    <td id="Title">Workflow Title</td>
+                    <td><span type="text" class="form-control"
+                              id="Title_detail">@workflow.getTitle()</td>
+                </tr>
+                <tr id="Description_trID">
+                    <td id="Description">Workflow Description</td>
+                    <td><span type="text" class="form-control"
+                              id="Description_detail">@workflow.getDescription()</td>
+                </tr>
+                <tr id="Contributor_trID">
+                    <td id="Contributor">Workflow Contributor</td>
+                    <td><span type="text" class="form-control"
+                              id="Contributor_detail">@workflow.getContributor()</td>
+                </tr>
+                <tr id="Instruction_trID">
+                    <td id="Instruction">Workflow Instruction</td>
+                    <td><span type="text" class="form-control"
+                              id="Instruction_detail">@workflow.getInstruction()</td>
+                </tr>
+                <tr id="Dataset_trID">
+                    <td id="Dataset">Workflow Dataset</td>
+                    <td><span type="text" class="form-control"
+                              id="Dataset_detail">@workflow.getDataset()</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+
+    <div class="container col-md-6">
+        <form>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Workflow Image</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><a id="workflowImgLink" href=""> <img src="http://i.stack.imgur.com/wpt5k.jpg"
+                                                              id="workflowImg" class="img-responsive">
+                    </a></td>
+                </tr>
+                <tr>
+                    <td><a id="commentLink" href=""> <textarea
+                            class="form-control" rows="3" id="comment"></textarea>
+                    </a></td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class="text-center" id="output"></div>
+        </form>
+    </div>
+
+
+    </body>
+
+</div>
+
+@*
+<h1>@workflows.size() Workflow List</h1>
+<table class="table table-striped table-bordered table-condensed ex2 tablesorter" id = "csTable">
+    <thead>
+    <tr>
+        <th class="col-md-2">Workflow ID</td>
+        <th class="col-md-4">Workflow title</td>
+
+    </tr>
+    </thead>
+    @for(workflow <- workflows){
+    <tr>
+        <td><a href = "#"><font size="3">@workflow.getId()</a></font></td>
+
+        <td><span class="@workflow.getTitle() editable"  data-name='purpose'><font size="3">
+            @workflow.getTitle() </font></span></td>
+
+    </tr>
+    }
+</table>*@
+
+
+}

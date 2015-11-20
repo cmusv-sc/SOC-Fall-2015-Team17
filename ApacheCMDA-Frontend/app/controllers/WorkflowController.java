@@ -14,7 +14,7 @@ import util.APICall;
 import views.html.climate.addClimateServices;
 import views.html.climate.createWorkflow;
 import views.html.climate.linkTags;
-import views.html.climate.workflows;
+import views.html.climate.*;
 
 import java.text.SimpleDateFormat;
 
@@ -35,31 +35,50 @@ public class WorkflowController extends Controller{
     public static Result handleCreateWorkflow(){
         Form<Workflow> dc = workflowForm.bindFromRequest();
         ObjectNode jsonData = Json.newObject();
-        String title = "";
-        String description = "";
-        String image = "";
-        String contributor = "";
-        String instruction = "";
-        String dataset = "";
+        JsonNode response=null;
         try {
-            title = dc.field("Title").value();
-            description = dc.field("Description").value();
-            image = dc.field("Image").value();
-            contributor = dc.field("Contributor").value();
-            instruction = dc.field("Instruction").value();
-            dataset = dc.field("Dataset").value();
+           String title = dc.field("Title").value();
+           String description = dc.field("Description").value();
+           String image = dc.field("Image").value();
+           String contributor = dc.field("Contributor").value();
+           String instruction = dc.field("Instruction").value();
+           String dataset = dc.field("Dataset").value();
+            String tags=dc.field("tags").value();
+            jsonData.put("title",title);
+            jsonData.put("description",description);
+            jsonData.put("image",image);
+            jsonData.put("contributor",contributor);
+            jsonData.put("instruction",instruction);
+            jsonData.put("dataset",dataset);
+            jsonData.put("tags",tags);
+             response= Workflow.create(jsonData);
+            Application.flashMsg(response);
         }catch(Exception e){
             e.printStackTrace();
         }
+        return redirect("/workflows");
 
-        return ok(linkTags.render(TagController.tagForm));
+
        // return redirect("/workflows");
     }
 
     public static Result linkTags(){
+        Form<Tag> dc = TagController.tagForm.bindFromRequest();
+        int workflowId=Integer.parseInt(dc.field("workflowId").value());
+        String tags=dc.field("tags").value();
+        ObjectNode jsonData = Json.newObject();
+        jsonData.put("workflowId",workflowId);
+        jsonData.put("tags",tags);
+        JsonNode response=Workflow.createTags(jsonData);
+
         return redirect("/workflows");
     }
 
+
+    public static Result displayWorkflow(long id){
+        Workflow workflow=Workflow.getWorkflow(id);
+        return ok(workflowDisplay.render(workflow));
+    }
 
 
     /*public static Result createWorkflow() {

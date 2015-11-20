@@ -11,10 +11,11 @@ public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(unique = true)
     private String name;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    @JoinTable(name = "TagAndWorkflow", joinColumns = { @JoinColumn(name ="tagId", referencedColumnName = "id")}, inverseJoinColumns = { @JoinColumn(name = "workflowId", referencedColumnName = "id") })
-    private List<Workflow> workflows;
+    /*@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "WorkflowAndTag", joinColumns = { @JoinColumn(name ="tagId", referencedColumnName = "id")}, inverseJoinColumns = { @JoinColumn(name = "workflowId", referencedColumnName = "id") })
+    private List<Workflow> workflows;*/
 
 
     public Tag(){
