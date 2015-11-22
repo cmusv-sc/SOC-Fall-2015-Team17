@@ -20,9 +20,16 @@ import org.springframework.data.repository.CrudRepository;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
+import java.util.List;
 
 @Named
 @Singleton
 public interface WorkflowRepository extends CrudRepository<Workflow, Long> {
+
+    List<Workflow> findTop10ByOrderByViewCountDesc();
+    List <Workflow> findTop10ByOrderByCommentCountDesc();
+    List <Workflow> findTop10ByOrderByUsageCountDesc();
+    List <Workflow> findTop10ByOrderByDownloadCountDesc();
+    List <Workflow> findTop10ByOrderByReferenceCountDesc();
 
 }
