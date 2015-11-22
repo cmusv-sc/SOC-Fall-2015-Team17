@@ -1,223 +1,54 @@
-2015-11-20 11:50:53,274 - [INFO] - from play in pool-4-thread-3 
-Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2015-11-20 14:14:27,242 - [INFO] - from play in pool-4-thread-3 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9001
 
-2015-11-20 11:51:10,766 - [ERROR] - from application in New I/O worker #1 
-
-
-! @6o7cg7pm4 - Internal server error, for (GET) [/] ->
-
-play.PlayExceptions$CompilationException: Compilation error[value getTitle is not a member of object views.html.climate.workflows]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
-	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
-
-2015-11-20 11:51:10,889 - [WARN] - from play in New I/O worker #1 
-No application found at invoker init
-
-2015-11-20 11:51:15,973 - [ERROR] - from application in New I/O worker #2 
-
-
-! @6o7cg87f1 - Internal server error, for (GET) [/] ->
-
-play.PlayExceptions$CompilationException: Compilation error[value getTitle is not a member of object views.html.climate.workflows]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
-	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
-
-2015-11-20 11:53:50,282 - [INFO] - from play in play-internal-execution-context-2 
+2015-11-20 14:14:59,152 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-11-20 11:53:50,595 - [INFO] - from play in play-internal-execution-context-2 
+2015-11-20 14:14:59,479 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-11-20 11:53:51,882 - [INFO] - from play in play-internal-execution-context-2 
+2015-11-20 14:15:00,872 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-20 11:53:52,833 - [INFO] - from play in play-internal-execution-context-2 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-20 11:53:52,837 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-20 11:53:53,019 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-11-20 11:53:57,934 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
+2015-11-20 14:15:11,930 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
 http://localhost:9034/workflow/getAllWorkflows/json
 
-2015-11-20 11:54:01,632 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
-http://localhost:9034/workflow/getWorkflow/id/1
+2015-11-20 14:15:19,050 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
+http://localhost:9034/workflow/getWorkflow/id/5
 
-2015-11-20 11:54:49,825 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
-http://localhost:9034/workflow/getWorkflow/id/1
+2015-11-20 14:15:57,721 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
+http://localhost:9034/tag/getAllTags/json
 
-2015-11-20 11:55:03,226 - [INFO] - from play in play-internal-execution-context-2 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+2015-11-20 14:18:06,726 - [INFO] - from application in play-akka.actor.default-dispatcher-20 
+http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-20 11:55:03,229 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:file:data/db
+2015-11-20 14:18:16,076 - [INFO] - from application in play-akka.actor.default-dispatcher-20 
+http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-20 11:55:03,376 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-11-20 11:55:03,384 - [INFO] - from application in play-akka.actor.default-dispatcher-14 
-http://localhost:9034/workflow/getWorkflow/id/1
-
-2015-11-20 11:55:10,187 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
-http://localhost:9034/workflow/getWorkflow/id/1
-
-2015-11-20 11:56:28,452 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-http://localhost:9034/workflow/getWorkflow/id/1
-
-2015-11-20 11:56:38,572 - [INFO] - from play in play-internal-execution-context-2 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-20 11:56:38,577 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-20 11:56:38,999 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-11-20 11:56:39,007 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-http://localhost:9034/workflow/getWorkflow/id/1
-
-2015-11-20 11:57:53,682 - [INFO] - from play in play-internal-execution-context-2 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-20 11:57:53,686 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-20 11:57:54,118 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-11-20 11:57:54,130 - [INFO] - from application in play-akka.actor.default-dispatcher-35 
-http://localhost:9034/workflow/getWorkflow/id/1
-
-2015-11-20 11:58:01,525 - [INFO] - from application in play-akka.actor.default-dispatcher-35 
+2015-11-20 14:18:21,872 - [INFO] - from application in play-akka.actor.default-dispatcher-27 
 http://localhost:9034/workflow/getAllWorkflows/json
 
-2015-11-20 11:58:05,038 - [INFO] - from application in play-akka.actor.default-dispatcher-35 
+2015-11-20 14:18:27,339 - [INFO] - from application in play-akka.actor.default-dispatcher-32 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 14:18:29,431 - [INFO] - from application in play-akka.actor.default-dispatcher-20 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-11-20 14:19:26,271 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
+http://localhost:9034/workflow/getWorkflow/id/4
+
+2015-11-20 14:19:32,152 - [INFO] - from application in play-akka.actor.default-dispatcher-39 
+http://localhost:9034/workflow/getWorkflow/id/1
+
+2015-11-20 14:19:36,505 - [INFO] - from application in play-akka.actor.default-dispatcher-35 
+http://localhost:9034/workflow/getWorkflow/id/1
+
+2015-11-20 14:19:39,738 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
 http://localhost:9034/workflow/getWorkflow/id/3
 
-2015-11-20 11:58:09,232 - [INFO] - from application in play-akka.actor.default-dispatcher-42 
-http://localhost:9034/tag/getAllTags/json
+2015-11-20 14:19:43,061 - [INFO] - from application in play-akka.actor.default-dispatcher-38 
+http://localhost:9034/workflow/getWorkflow/id/4
 
-2015-11-20 11:58:12,549 - [INFO] - from application in play-akka.actor.default-dispatcher-35 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 11:58:14,506 - [INFO] - from application in play-akka.actor.default-dispatcher-39 
-http://localhost:9034/tag/getAllTags/json
-
-2015-11-20 11:58:18,161 - [INFO] - from application in play-akka.actor.default-dispatcher-36 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 11:58:24,285 - [INFO] - from application in play-akka.actor.default-dispatcher-36 
-http://localhost:9034/tag/getAllTags/json
-
-2015-11-20 11:58:28,613 - [INFO] - from application in play-akka.actor.default-dispatcher-44 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 12:02:06,456 - [INFO] - from play in play-internal-execution-context-2 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-20 12:02:06,459 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-20 12:02:07,481 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-11-20 12:02:07,490 - [INFO] - from application in play-akka.actor.default-dispatcher-41 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 12:03:57,752 - [INFO] - from application in play-akka.actor.default-dispatcher-52 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 12:04:02,518 - [INFO] - from play in play-internal-execution-context-2 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-20 12:04:02,522 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-20 12:04:02,659 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-11-20 12:04:02,666 - [INFO] - from application in play-akka.actor.default-dispatcher-49 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 12:07:11,797 - [INFO] - from play in play-internal-execution-context-5 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-20 12:07:11,800 - [INFO] - from play in play-internal-execution-context-5 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-20 12:07:11,914 - [INFO] - from play in play-internal-execution-context-5 
-Application started (Dev)
-
-2015-11-20 12:07:11,921 - [INFO] - from application in play-akka.actor.default-dispatcher-49 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 12:07:17,444 - [INFO] - from application in play-akka.actor.default-dispatcher-49 
-http://localhost:9034/workflow/getWorkflow/id/1
-
-2015-11-20 12:07:20,896 - [INFO] - from application in play-akka.actor.default-dispatcher-60 
-http://localhost:9034/workflow/getWorkflow/id/3
-
-2015-11-20 12:07:24,901 - [INFO] - from application in play-akka.actor.default-dispatcher-65 
-http://localhost:9034/workflow/getWorkflow/id/1
-
-2015-11-20 12:07:29,696 - [INFO] - from application in play-akka.actor.default-dispatcher-64 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 12:07:58,679 - [INFO] - from play in play-internal-execution-context-6 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-20 12:07:58,683 - [INFO] - from play in play-internal-execution-context-6 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-20 12:07:58,819 - [INFO] - from play in play-internal-execution-context-6 
-Application started (Dev)
-
-2015-11-20 12:08:03,009 - [INFO] - from application in play-akka.actor.default-dispatcher-73 
-http://localhost:9034/tag/getAllTags/json
-
-2015-11-20 12:08:05,426 - [INFO] - from application in play-akka.actor.default-dispatcher-62 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 12:08:57,963 - [INFO] - from application in play-akka.actor.default-dispatcher-75 
-http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-11-20 12:09:04,134 - [INFO] - from application in play-akka.actor.default-dispatcher-75 
-http://localhost:9034/tag/getAllTags/json
+2015-11-20 14:19:47,429 - [INFO] - from application in play-akka.actor.default-dispatcher-41 
+http://localhost:9034/workflow/getWorkflow/id/4
 
