@@ -37,7 +37,7 @@ POST          /workflow/addWorkflow                                             
 
 #Popularity
 GET            /workflow/getViewCount/:id                                                              @controllers.WorkflowController.getWorkflowViewCount(id: Long, format: String= "json")
-PUT            /workflow/updateViewCount/id/:id                                                        @controllers.WorkflowController.updateWorkflowViewCount(id: Long)
+GET            /workflow/updateViewCount/:id                                                        @controllers.WorkflowController.updateWorkflowViewCount(id: Long, format: String= "json")
 GET            /workflow/getUsageCount/:id                                                              @controllers.WorkflowController.getWorkflowUsageCount(id: Long, format: String= "json")
 PUT            /workflow/updateUsageCount/id/:id                                                        @controllers.WorkflowController.updateWorkflowUsageCount(id: Long)
 GET            /workflow/getDownloadCount/:id                                                              @controllers.WorkflowController.getWorkflowDownloadCount(id: Long, format: String= "json")

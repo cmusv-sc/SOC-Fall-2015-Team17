@@ -94,30 +94,44 @@ public class WorkflowController extends Controller {
 
     //workflow popularity things
     //ViewCount+1;
-    public Result updateWorkflowViewCount(long id) {
-        JsonNode json = request().body().asJson();
-        if (json == null) {
-            System.out.println("Workflow not found, expecting Json data");
-            return badRequest("Workflow not found, expecting Json data");
+    public Result updateWorkflowViewCount(long id, String format) {
+        if (id < 0) {
+            System.out.println("Workflow id is not valid!");
+        }
+        Workflow workflow = workflowRepository.findOne(id);
+        if (workflow == null) {
+            System.out.println("Workflow not found with id: " + id) ;
+            return notFound("Workflow not found with id: " + id);
         }
 
-        // Parse JSON file
-        int viewCount = Integer.parseInt(json.path("viewCount").asText());//需不需要由前端往回传? 还有是不是整合在别的函数里;
-        viewCount = viewCount + 1;
-        try {
-            Workflow updateWorkflow = workflowRepository.findOne(id);
+        String result = new String();
+        int count = workflow.getViewCount();
+        count = count + 1;
+        workflow.setViewCount(count);
+        workflowRepository.save(workflow);
 
-            updateWorkflow.setViewCount(viewCount);
-
-
-            Workflow savedWorkflow = workflowRepository.save(updateWorkflow);
-            System.out.println("Workflow ViewCount updated: " + savedWorkflow.getViewCount());
-            return created("Workflow ViewCount updated: " + savedWorkflow.getViewCount());
-        } catch (PersistenceException pe) {
-            pe.printStackTrace();
-            System.out.println("Workflow ViewCount not updated: " + viewCount);
-            return badRequest("Workflow ViewCount not updated: " + viewCount);
+        if (format.equals("json")) {
+            result = new Gson().toJson(count);
         }
+        return ok(result);
+
+//        // Parse JSON file
+//        int viewCount = Integer.parseInt(json.path("viewCount").asText());//需不需要由前端往回传? 还有是不是整合在别的函数里;
+//        viewCount = viewCount + 1;
+//        try {
+//            Workflow updateWorkflow = workflowRepository.findOne(id);
+//
+//            updateWorkflow.setViewCount(viewCount);
+//
+//
+//            Workflow savedWorkflow = workflowRepository.save(updateWorkflow);
+//            System.out.println("Workflow ViewCount updated: " + savedWorkflow.getViewCount());
+//            return created("Workflow ViewCount updated: " + savedWorkflow.getViewCount());
+//        } catch (PersistenceException pe) {
+//            pe.printStackTrace();
+//            System.out.println("Workflow ViewCount not updated: " + viewCount);
+//            return badRequest("Workflow ViewCount not updated: " + viewCount);
+//        }
     }
 
     //get Workflow ViewCount
