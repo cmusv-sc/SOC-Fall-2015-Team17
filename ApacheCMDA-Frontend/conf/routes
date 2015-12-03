@@ -38,6 +38,7 @@ GET         /workflows                                          controllers.Work
 GET         /workflow/workflowCreating                          controllers.WorkflowController.handleCreateWorkflow()
 GET         /workflow/linkTags                                  controllers.WorkflowController.linkTags()
 GET         /workflow/disWorkflow                               controllers.WorkflowController.displayWorkflow(id: Long)
+GET         /workflow/getTop10WorkflowsByViewCount              controllers.WorkflowController.workflowsByTopViewCount()
 
 # Tag Model
 GET			/tag											controllers.TagController.home(email ?= null, vfile ?= null, dataset ?= null)
