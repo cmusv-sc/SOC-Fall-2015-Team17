@@ -57,7 +57,7 @@ GET            /workflow/getTop10WorkflowByReferenceCount/json                  
 GET           /tag/getAllTags/json                                                                      @controllers.TagController.getAllTags(format: String="json")
 GET           /tag/getTag/id/:id/json                                                                   @controllers.TagController.getTag(id: Long, format: String="json")
 POST          /tag/addTag                                                                               @controllers.TagController.addTag
-
+GET           /tag/getAllTagWeights/json                                                                @controllers.TagController.getAllTagWeights
 
 
 # Dataset

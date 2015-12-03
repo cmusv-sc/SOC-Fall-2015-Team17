@@ -50,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/conf/routes">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="120" selection-start-line="40" selection-start-column="120" selection-end-line="40" selection-end-column="120" />
+              <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -66,21 +66,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Workflow.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Workflow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/metadata/Workflow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27522936">
-              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+            <state vertical-scroll-proportion="-5.5555553">
+              <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tagCloud.scala.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tagCloud.scala.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/climate/tagCloud.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375">
-              <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.23357664">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -146,16 +146,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/climate/tagCloud.scala.html" />
         <option value="$PROJECT_DIR$/app/views/climate/header.scala.html" />
         <option value="$PROJECT_DIR$/app/controllers/WorkflowController.java" />
         <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/models/metadata/Workflow.java" />
+        <option value="$PROJECT_DIR$/app/views/climate/tagCloud.scala.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="12" />
+    <option name="x" value="-24" />
     <option name="y" value="23" />
     <option name="width" value="1260" />
     <option name="height" value="669" />
@@ -485,7 +485,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="12" y="23" width="1260" height="669" extended-state="0" />
+    <frame x="-24" y="23" width="1260" height="669" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -566,14 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/climate/tagCloud.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/climate/workflows.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.2083335">
@@ -598,14 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="120" selection-start-line="40" selection-start-column="120" selection-end-line="40" selection-end-column="120" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/WorkflowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -621,8 +605,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/metadata/Workflow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27522936">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        <state vertical-scroll-proportion="-5.5555553">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/routes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/climate/tagCloud.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23357664">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding />
         </state>
       </provider>
