@@ -1,6 +1,9 @@
-2015-11-22 00:06:11,172 - [INFO] - from play in pool-4-thread-2 
+2015-12-03 12:40:48,581 - [INFO] - from play in pool-4-thread-4 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9034
 
-2015-11-22 00:10:27,295 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 12:43:18,546 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
+
+2015-12-03 12:45:16,840 - [ERROR] - from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in play-akka.actor.default-dispatcher-5 
+Field 'rootWorkflowId' doesn't have a default value
 

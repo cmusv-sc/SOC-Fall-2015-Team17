@@ -1,12 +1,57 @@
-2015-12-03 12:21:07,559 - [INFO] - from play in pool-4-thread-2 
-Listening for HTTP on /0:0:0:0:0:0:0:0:9990
+2015-12-03 12:41:08,723 - [INFO] - from play in pool-4-thread-3 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-12-03 12:21:57,417 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 12:42:12,090 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-12-03 12:21:57,786 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 12:42:12,399 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-12-03 12:21:59,529 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 12:42:13,709 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
+
+2015-12-03 12:42:28,818 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-12-03 12:43:34,396 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-12-03 12:43:38,026 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+http://localhost:9034/tag/getAllTags/json
+
+2015-12-03 12:45:16,898 - [INFO] - from application in play-akka.actor.default-dispatcher-20 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-12-03 12:59:51,278 - [INFO] - from play in play-internal-execution-context-2 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 12:59:51,281 - [INFO] - from play in play-internal-execution-context-2 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 12:59:51,551 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+
+2015-12-03 13:02:25,905 - [INFO] - from application in play-akka.actor.default-dispatcher-36 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-12-03 13:10:12,600 - [INFO] - from play in play-internal-execution-context-2 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 13:10:12,603 - [INFO] - from play in play-internal-execution-context-2 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 13:10:12,762 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+
+2015-12-03 13:24:07,590 - [INFO] - from play in play-internal-execution-context-2 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-12-03 13:24:07,593 - [INFO] - from play in play-internal-execution-context-2 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-12-03 13:24:07,691 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+
+2015-12-03 13:24:07,702 - [INFO] - from application in play-akka.actor.default-dispatcher-42 
+http://localhost:9034/workflow/getWorkflow/id/1
 

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Tag Cloud</title>
-    <link rel="stylesheet" type="text/css" href="/assets/jqcloud/jqcloud.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/jqcloud/jqcloud.css"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
     <script type="text/javascript" src="/assets/jqcloud/jqcloud-1.0.4.js"></script>
     <script type="text/javascript">
+
+    var word_list=[];
+    $.get("http://localhost:9034/tag/getTagWeight", function(data, status){
+        word_list=data;
+        });
+
         var word_list = [
-          {text: "Lorem", weight: 13, link: "https://github.com/DukeLeNoir/jQCloud"},
-          {text: "Ipsum", weight: 10.5, html: {title: "My Title", "class": "custom-class"}, link: {href: "http://jquery.com/", target: "_blank"}},
+          {text: "Lorem", weight: 13},
+          {text: "Ipsum", weight: 10.5},
           {text: "Dolor", weight: 9.4},
           {text: "Sit", weight: 8},
           {text: "Amet", weight: 6.2},
@@ -53,20 +59,21 @@
         $(function() {
           $("#my_favorite_latin_words").jQCloud(word_list);
         });
+
     </script>
-  </head>
-  <body>
-    @*
-    <h1>Tag Cloud</h1>
-    *@
-  <div align="center" >
+</head>
+<body>
+@*
+<h1>Tag Cloud</h1>
+*@
+<div align="center">
     <h2 class="text-center">Tag Cloud</h2>
 
 
     <div id="my_favorite_latin_words" style="width: 550px; height: 350px; border: 1px solid #ccc;"></div>
-  </div>
+</div>
 
-  </body>
+</body>
 
 
 </html>

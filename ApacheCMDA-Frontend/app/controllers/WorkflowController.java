@@ -52,6 +52,7 @@ public class WorkflowController extends Controller{
             jsonData.put("dataset",dataset);
             jsonData.put("tags",tags);
              response= Workflow.create(jsonData);
+
             Application.flashMsg(response);
         }catch(Exception e){
             e.printStackTrace();
