@@ -10,6 +10,10 @@ import java.util.List;
 /**
  * Created by zmhbh on 11/18/15.
  */
+/*
+modified by Ethan on 12/01/15
+added poupularity part
+ */
 public class Workflow {
     private int id;
     private String title;
@@ -32,6 +36,9 @@ public class Workflow {
     private static final String ADD_WORKFLOW = "http://localhost:9034/workflow/addWorkflow";
     private static final String CREATE_TAGS="http://localhost:9034/workflow/createTags";
     private static final String GET_WORKFLOW="http://localhost:9034/workflow/getWorkflow/id/";
+    private static final String GET_TOP10_WORKFLOWS_BY_VIEWCOUNT = "http://localhost:9034/workflow/getTop10WorkflowByViewCount/json";
+    private static final String UPDATE_VIEWCOUNT = "http://localhost:9034/workflow/updateViewCount/";
+
 
     public Workflow(){
 
@@ -197,6 +204,45 @@ public class Workflow {
             workflows.add(newWorkflow);
         }
         return workflows;
+    }
+
+    public static List<Workflow> getTop10WorkflowsByViewCount() {
+
+        List<Workflow> workflows = new ArrayList<Workflow>();
+
+        JsonNode workflowNode = APICall
+                .callAPI(GET_TOP10_WORKFLOWS_BY_VIEWCOUNT);// restful service call backend
+
+        if (workflowNode == null || !workflowNode.isArray()) {
+            return workflows;
+        }
+
+        for (int i = 0; i < workflowNode.size(); i++) {
+            JsonNode json = workflowNode.path(i);
+            Workflow newWorkflow = new Workflow();
+            newWorkflow.setId(json.path("id").asInt());
+            newWorkflow.setTitle(json.path("title").asText());
+            newWorkflow.setDescription(json.path("description").asText());
+            newWorkflow.setImage(json.path("image").asText());
+            newWorkflow.setContributor(json.path("contributor").asText());
+            newWorkflow.setInstruction(json.path("instruction").asText());
+            newWorkflow.setDataset(json.path("dataset").asText());
+            newWorkflow.setViewCount(json.path("viewCount").asInt());
+            newWorkflow.setUsageCount(json.path("usageCount").asInt());
+            newWorkflow.setCommentCount(json.path("commentCount").asInt());
+            newWorkflow.setDownloadCount(json.path("downloadCount").asInt());
+            newWorkflow.setReferenceCount(json.path("referenceCount").asInt());
+
+            workflows.add(newWorkflow);
+        }
+        return workflows;
+    }
+
+    public static void updateViewCount(long id) {
+        JsonNode workflowNode= APICall.callAPI(UPDATE_VIEWCOUNT + id);
+        if (workflowNode == null) {
+            return;
+        }
     }
 
 
