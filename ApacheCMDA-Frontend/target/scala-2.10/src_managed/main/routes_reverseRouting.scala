@@ -1,6 +1,6 @@
-// @SOURCE:/Users/Ethan/Desktop/team/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/conf/routes
-// @HASH:10578c5ec55619d43877ea896d9e42a6fe544728
-// @DATE:Fri Nov 20 14:14:33 PST 2015
+// @SOURCE:/Users/Holysoul/Desktop/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/conf/routes
+// @HASH:4eddf2ef6bd9cde0f74693b5cbb6d172766b6e37
+// @DATE:Thu Dec 03 12:21:28 PST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,10 +13,11 @@ import play.libs.F
 import Router.queryString
 
 
-// @LINE:53
+// @LINE:55
+// @LINE:52
+// @LINE:51
 // @LINE:50
-// @LINE:49
-// @LINE:48
+// @LINE:46
 // @LINE:45
 // @LINE:44
 // @LINE:43
@@ -48,11 +49,11 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:53
+// @LINE:55
 class ReverseAssets {
     
 
-// @LINE:53
+// @LINE:55
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -61,11 +62,18 @@ def at(file:String): Call = {
 }
                           
 
+// @LINE:46
 // @LINE:45
 // @LINE:44
 // @LINE:43
 class ReverseTagController {
     
+
+// @LINE:46
+def tagCloud(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "tag/tagCloud")
+}
+                                                
 
 // @LINE:45
 def oneService(url:String = null): Call = {
@@ -190,25 +198,25 @@ def newReport(): Call = {
 }
                           
 
+// @LINE:52
+// @LINE:51
 // @LINE:50
-// @LINE:49
-// @LINE:48
 class ReverseDatasetController {
     
 
-// @LINE:50
+// @LINE:52
 def getSearchResult(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/getSearchResult")
 }
                                                 
 
-// @LINE:49
+// @LINE:51
 def searchDataset(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/searchDataSet")
 }
                                                 
 
-// @LINE:48
+// @LINE:50
 def datasetList(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/datasets")
 }
@@ -324,10 +332,11 @@ def deleteClimateService(): Call = {
                   
 
 
-// @LINE:53
+// @LINE:55
+// @LINE:52
+// @LINE:51
 // @LINE:50
-// @LINE:49
-// @LINE:48
+// @LINE:46
 // @LINE:45
 // @LINE:44
 // @LINE:43
@@ -359,11 +368,11 @@ def deleteClimateService(): Call = {
 // @LINE:6
 package controllers.javascript {
 
-// @LINE:53
+// @LINE:55
 class ReverseAssets {
     
 
-// @LINE:53
+// @LINE:55
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -377,11 +386,23 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:46
 // @LINE:45
 // @LINE:44
 // @LINE:43
 class ReverseTagController {
     
+
+// @LINE:46
+def tagCloud : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.TagController.tagCloud",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "tag/tagCloud"})
+      }
+   """
+)
+                        
 
 // @LINE:45
 def oneService : JavascriptReverseRoute = JavascriptReverseRoute(
@@ -581,13 +602,13 @@ def newReport : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:52
+// @LINE:51
 // @LINE:50
-// @LINE:49
-// @LINE:48
 class ReverseDatasetController {
     
 
-// @LINE:50
+// @LINE:52
 def getSearchResult : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DatasetController.getSearchResult",
    """
@@ -598,7 +619,7 @@ def getSearchResult : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:49
+// @LINE:51
 def searchDataset : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DatasetController.searchDataset",
    """
@@ -609,7 +630,7 @@ def searchDataset : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:48
+// @LINE:50
 def datasetList : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DatasetController.datasetList",
    """
@@ -788,10 +809,11 @@ def deleteClimateService : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:53
+// @LINE:55
+// @LINE:52
+// @LINE:51
 // @LINE:50
-// @LINE:49
-// @LINE:48
+// @LINE:46
 // @LINE:45
 // @LINE:44
 // @LINE:43
@@ -824,11 +846,11 @@ def deleteClimateService : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:53
+// @LINE:55
 class ReverseAssets {
     
 
-// @LINE:53
+// @LINE:55
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -837,11 +859,18 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
+// @LINE:46
 // @LINE:45
 // @LINE:44
 // @LINE:43
 class ReverseTagController {
     
+
+// @LINE:46
+def tagCloud(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.TagController.tagCloud(), HandlerDef(this, "controllers.TagController", "tagCloud", Seq(), "GET", """""", _prefix + """tag/tagCloud""")
+)
+                      
 
 // @LINE:45
 def oneService(url:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
@@ -966,25 +995,25 @@ def newReport(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:52
+// @LINE:51
 // @LINE:50
-// @LINE:49
-// @LINE:48
 class ReverseDatasetController {
     
 
-// @LINE:50
+// @LINE:52
 def getSearchResult(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DatasetController.getSearchResult(), HandlerDef(this, "controllers.DatasetController", "getSearchResult", Seq(), "GET", """""", _prefix + """climate/getSearchResult""")
 )
                       
 
-// @LINE:49
+// @LINE:51
 def searchDataset(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DatasetController.searchDataset(), HandlerDef(this, "controllers.DatasetController", "searchDataset", Seq(), "GET", """""", _prefix + """climate/searchDataSet""")
 )
                       
 
-// @LINE:48
+// @LINE:50
 def datasetList(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DatasetController.datasetList(), HandlerDef(this, "controllers.DatasetController", "datasetList", Seq(), "GET", """Keyword search""", _prefix + """climate/datasets""")
 )

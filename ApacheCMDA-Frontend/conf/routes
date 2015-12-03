@@ -43,6 +43,8 @@ GET         /workflow/disWorkflow                               controllers.Work
 GET			/tag											controllers.TagController.home(email ?= null, vfile ?= null, dataset ?= null)
 GET			/tag/tags							            controllers.TagController.tags()
 GET			/tag/oneService									controllers.TagController.oneService(url ?= null)
+GET         /tag/tagCloud                                   controllers.TagController.tagCloud()
+
 
 #Keyword search
 GET 		/climate/datasets									controllers.DatasetController.datasetList()

@@ -37,6 +37,10 @@ public class TagController extends Controller {
     public static Result tags() {
         return ok(tags.render(Tag.all(), tagForm));
     }
+	
+    public static Result tagCloud() {
+        return ok(tagCloud.render());
+    }
 
 /*
 

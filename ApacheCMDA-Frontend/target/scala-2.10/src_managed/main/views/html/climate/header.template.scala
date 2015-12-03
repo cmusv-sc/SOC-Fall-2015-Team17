@@ -80,8 +80,9 @@ Seq[Any](format.raw/*18.4*/("""
                     <ul class="dropdown-menu">
 
                         <li><a href=""""),_display_(Seq[Any](/*41.39*/routes/*41.45*/.WorkflowController.workflows())),format.raw/*41.76*/("""">Workflow List</a></li>
-                        <li><a href=""""),_display_(Seq[Any](/*42.39*/routes/*42.45*/.TagController.tags())),format.raw/*42.66*/("""">Tag List</a></li>
-                        <li><a href=""""),_display_(Seq[Any](/*43.39*/routes/*43.45*/.WorkflowController.createWorkflow())),format.raw/*43.81*/("""">Create Workflow</a></li>
+						<li><a href=""""),_display_(Seq[Any](/*42.21*/routes/*42.27*/.TagController.tagCloud())),format.raw/*42.52*/("""">Tag Cloud</a></li>
+                        <li><a href=""""),_display_(Seq[Any](/*43.39*/routes/*43.45*/.TagController.tags())),format.raw/*43.66*/("""">Tag List</a></li>
+                        <li><a href=""""),_display_(Seq[Any](/*44.39*/routes/*44.45*/.WorkflowController.createWorkflow())),format.raw/*44.81*/("""">Create Workflow</a></li>
                     </ul>
 
                 </li>
@@ -92,7 +93,7 @@ Seq[Any](format.raw/*18.4*/("""
                         class="caret"></b></a>
                     <ul class="dropdown-menu">
 
-                        <li><a href=""""),_display_(Seq[Any](/*54.39*/routes/*54.45*/.ClimateServiceController.climateServices())),format.raw/*54.88*/("""">Service List</a></li>
+                        <li><a href=""""),_display_(Seq[Any](/*55.39*/routes/*55.45*/.ClimateServiceController.climateServices())),format.raw/*55.88*/("""">Service List</a></li>
                     </ul>
 
                 </li>
@@ -101,26 +102,26 @@ Seq[Any](format.raw/*18.4*/("""
                         class="caret"></b></a>
                     <ul class="dropdown-menu">
 
-                        <li><a href=""""),_display_(Seq[Any](/*63.39*/routes/*63.45*/.DatasetController.datasetList())),format.raw/*63.77*/("""">Dataset List</a></li>
-                        <li><a href=""""),_display_(Seq[Any](/*64.39*/routes/*64.45*/.DatasetController.searchDataset())),format.raw/*64.79*/("""">Search dataset</a></li>
+                        <li><a href=""""),_display_(Seq[Any](/*64.39*/routes/*64.45*/.DatasetController.datasetList())),format.raw/*64.77*/("""">Dataset List</a></li>
+                        <li><a href=""""),_display_(Seq[Any](/*65.39*/routes/*65.45*/.DatasetController.searchDataset())),format.raw/*65.79*/("""">Search dataset</a></li>
                     </ul>
                 </li>
-                """),format.raw/*68.52*/("""
-                                        """),format.raw/*69.101*/("""
-                    """),format.raw/*70.47*/("""
-                    """),format.raw/*72.49*/("""
-                        """),format.raw/*75.27*/("""
-                        """),format.raw/*78.27*/("""
-                        """),format.raw/*81.23*/("""
-                    """),format.raw/*84.19*/("""
+                """),format.raw/*69.52*/("""
+                                        """),format.raw/*70.101*/("""
+                    """),format.raw/*71.47*/("""
+                    """),format.raw/*73.49*/("""
+                        """),format.raw/*76.27*/("""
+                        """),format.raw/*79.27*/("""
+                        """),format.raw/*82.23*/("""
+                    """),format.raw/*85.19*/("""
 
                 <li class="dropdown"><a href="#"
                                         class="dropdown-toggle" data-toggle="dropdown">About<b
                         class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href=""""),_display_(Seq[Any](/*90.39*/routes/*90.45*/.ClimateServiceController.home())),format.raw/*90.77*/("""">Home</a></li>
-                        <li><a href=""""),_display_(Seq[Any](/*91.39*/routes/*91.45*/.AboutusController.aboutUs())),format.raw/*91.73*/("""">About Us</a></li>
-                        <li><a href=""""),_display_(Seq[Any](/*92.39*/routes/*92.45*/.AboutusController.aboutProject())),format.raw/*92.78*/("""">About project</a></li>
+                        <li><a href=""""),_display_(Seq[Any](/*91.39*/routes/*91.45*/.ClimateServiceController.home())),format.raw/*91.77*/("""">Home</a></li>
+                        <li><a href=""""),_display_(Seq[Any](/*92.39*/routes/*92.45*/.AboutusController.aboutUs())),format.raw/*92.73*/("""">About Us</a></li>
+                        <li><a href=""""),_display_(Seq[Any](/*93.39*/routes/*93.45*/.AboutusController.aboutProject())),format.raw/*93.78*/("""">About project</a></li>
                     </ul>
                 </li>
 
@@ -141,11 +142,11 @@ Seq[Any](format.raw/*18.4*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 20 14:14:35 PST 2015
-                    SOURCE: /Users/Ethan/Desktop/team/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/app/views/climate/header.scala.html
-                    HASH: 027cb474834fb3b1c494361f0d9c45b335c49749
-                    MATRIX: 3339->1288|3435->1290|4066->1885|4081->1891|4141->1929|4276->2028|4291->2034|4342->2063|4833->2518|4848->2524|4901->2555|5000->2618|5015->2624|5058->2645|5152->2703|5167->2709|5225->2745|5618->3102|5633->3108|5698->3151|6086->3503|6101->3509|6155->3541|6253->3603|6268->3609|6324->3643|6442->3787|6512->3888|6561->3935|6610->4007|6663->4175|6716->4348|6769->4424|6818->4488|7132->4766|7147->4772|7201->4804|7291->4858|7306->4864|7356->4892|7450->4950|7465->4956|7520->4989
-                    LINES: 56->18|59->18|70->29|70->29|70->29|72->31|72->31|72->31|82->41|82->41|82->41|83->42|83->42|83->42|84->43|84->43|84->43|95->54|95->54|95->54|104->63|104->63|104->63|105->64|105->64|105->64|108->68|109->69|110->70|111->72|112->75|113->78|114->81|115->84|121->90|121->90|121->90|122->91|122->91|122->91|123->92|123->92|123->92
+                    DATE: Thu Dec 03 12:21:30 PST 2015
+                    SOURCE: /Users/Holysoul/Desktop/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/app/views/climate/header.scala.html
+                    HASH: 77dbe00a7c04fd7821a8e7fadbae10bfd007caea
+                    MATRIX: 3339->1288|3435->1290|4066->1885|4081->1891|4141->1929|4276->2028|4291->2034|4342->2063|4833->2518|4848->2524|4901->2555|4982->2600|4997->2606|5044->2631|5139->2690|5154->2696|5197->2717|5291->2775|5306->2781|5364->2817|5757->3174|5772->3180|5837->3223|6225->3575|6240->3581|6294->3613|6392->3675|6407->3681|6463->3715|6581->3859|6651->3960|6700->4007|6749->4079|6802->4247|6855->4420|6908->4496|6957->4560|7271->4838|7286->4844|7340->4876|7430->4930|7445->4936|7495->4964|7589->5022|7604->5028|7659->5061
+                    LINES: 56->18|59->18|70->29|70->29|70->29|72->31|72->31|72->31|82->41|82->41|82->41|83->42|83->42|83->42|84->43|84->43|84->43|85->44|85->44|85->44|96->55|96->55|96->55|105->64|105->64|105->64|106->65|106->65|106->65|109->69|110->70|111->71|112->73|113->76|114->79|115->82|116->85|122->91|122->91|122->91|123->92|123->92|123->92|124->93|124->93|124->93
                     -- GENERATED --
                 */
             
