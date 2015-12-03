@@ -21,6 +21,10 @@ import java.text.SimpleDateFormat;
 /**
  * Created by zmhbh on 11/18/15.
  */
+/*
+modified by Ethan on 12/01/15
+added poupularity part
+ */
 public class WorkflowController extends Controller{
     final static Form<Workflow> workflowForm = Form.form(Workflow.class);
 
@@ -30,6 +34,10 @@ public class WorkflowController extends Controller{
 
     public static Result createWorkflow() {
         return ok(createWorkflow.render(workflowForm));
+    }
+
+    public static Result workflowsByTopViewCount() {
+        return ok(workflowsPopularity.render(Workflow.getTop10WorkflowsByViewCount(), workflowForm));
     }
 
     public static Result handleCreateWorkflow(){
@@ -78,6 +86,7 @@ public class WorkflowController extends Controller{
 
     public static Result displayWorkflow(long id){
         Workflow workflow=Workflow.getWorkflow(id);
+        workflow.updateViewCount(id);
         return ok(workflowDisplay.render(workflow));
     }
 
