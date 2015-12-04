@@ -168,9 +168,9 @@ public class Workflow {
     public static Workflow getWorkflow(long id){
         Workflow workflow = new Workflow();
         JsonNode workflowNode=APICall.callAPI(GET_WORKFLOW+id);
+
         if(workflowNode==null)
             return workflow;
-
         Gson gson = new Gson();
         return gson.fromJson(workflowNode.toString(),Workflow.class);
     }

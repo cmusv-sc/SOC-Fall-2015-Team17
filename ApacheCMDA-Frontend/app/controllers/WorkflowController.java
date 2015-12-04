@@ -129,6 +129,10 @@ public class WorkflowController extends Controller{
 
     public static Result displayWorkflow(long id){
         Workflow workflow=Workflow.getWorkflow(id);
+        String image=workflow.getImage();
+        image="data:image/png;base64,"+image;
+        workflow.setImage(image);
+
         workflow.updateViewCount(id);
         return ok(workflowDisplay.render(workflow));
     }
