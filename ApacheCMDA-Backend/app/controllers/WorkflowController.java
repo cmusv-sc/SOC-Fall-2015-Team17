@@ -31,6 +31,7 @@ public class WorkflowController extends Controller {
         this.tagRepository = tagRepository;
     }
 
+    @BodyParser.Of(value = BodyParser.Json.class, maxLength = 1024 * 1024)
     public Result addWorkflow() {
         JsonNode json = request().body().asJson();
         if (json == null) {
@@ -40,6 +41,7 @@ public class WorkflowController extends Controller {
         String title = json.findPath("title").asText();
         String description = json.findPath("description").asText();
         String image = json.findPath("image").asText();
+        System.out.println("iamge source: "+image);
         String contributor = json.findPath("contributor").asText();
         String instruction = json.findPath("instruction").asText();
         String dataset = json.findPath("dataset").asText();

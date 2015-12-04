@@ -175,6 +175,7 @@ public class Workflow {
         return gson.fromJson(workflowNode.toString(),Workflow.class);
     }
 
+
     public static List<Workflow> all() {
         List<Workflow> workflows = new ArrayList<Workflow>();
 
@@ -191,7 +192,8 @@ public class Workflow {
             newWorkflow.setId(json.path("id").asInt());
             newWorkflow.setTitle(json.path("title").asText());
             newWorkflow.setDescription(json.path("description").asText());
-            newWorkflow.setImage(json.path("image").asText());
+            String image = "data:image/png;base64,"+json.path("image").asText();
+            newWorkflow.setImage(image);
             newWorkflow.setContributor(json.path("contributor").asText());
             newWorkflow.setInstruction(json.path("instruction").asText());
             newWorkflow.setDataset(json.path("dataset").asText());

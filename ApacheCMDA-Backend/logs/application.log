@@ -1,9 +1,30 @@
-2015-12-03 14:20:58,813 - [INFO] - from play in pool-4-thread-1 
+2015-12-03 16:25:42,899 - [INFO] - from play in pool-4-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9034
 
-2015-12-03 14:21:47,853 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 16:26:29,204 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-12-03 14:28:18,719 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 16:33:10,525 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-12-03 16:36:25,357 - [INFO] - from play in play-internal-execution-context-7 
+Application started (Dev)
+
+2015-12-03 16:39:34,307 - [ERROR] - from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in play-akka.actor.default-dispatcher-8 
+Data truncation: Data too long for column 'image' at row 1
+
+2015-12-03 16:49:33,818 - [INFO] - from play in play-internal-execution-context-14 
+Application started (Dev)
+
+2015-12-03 16:51:23,157 - [INFO] - from play in play-internal-execution-context-19 
+Application started (Dev)
+
+2015-12-03 16:54:26,784 - [INFO] - from play in play-internal-execution-context-19 
+Application started (Dev)
+
+2015-12-03 16:55:09,180 - [ERROR] - from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in play-akka.actor.default-dispatcher-16 
+Data truncation: Data too long for column 'image' at row 1
+
+2015-12-03 17:17:48,016 - [INFO] - from play in play-internal-execution-context-22 
 Application started (Dev)
 

@@ -35,20 +35,16 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
     <script type="text/javascript" src="/assets/jqcloud/jqcloud-1.0.4.js"></script>
     <script type="text/javascript">
 
-
-    $.getJSON("http://localhost:9034/tag/getAllTagWeights/json", function(data, status)"""),format.raw/*11.88*/("""{"""),format.raw/*11.89*/("""
-    $(function() """),format.raw/*12.18*/("""{"""),format.raw/*12.19*/("""
+    $.getJSON("http://localhost:9034/tag/getAllTagWeights/json", function(data, status)"""),format.raw/*10.88*/("""{"""),format.raw/*10.89*/("""
+    $(function() """),format.raw/*11.18*/("""{"""),format.raw/*11.19*/("""
           $("#my_favorite_latin_words").jQCloud(data);
-        """),format.raw/*14.9*/("""}"""),format.raw/*14.10*/(""");
-    """),format.raw/*15.5*/("""}"""),format.raw/*15.6*/(""");
-
-
-
+        """),format.raw/*13.9*/("""}"""),format.raw/*13.10*/(""");
+    """),format.raw/*14.5*/("""}"""),format.raw/*14.6*/(""");
 
     </script>
 </head>
 <body>
-"""),format.raw/*25.3*/("""
+"""),format.raw/*21.3*/("""
 <div align="center">
     <h2 class="text-center">Tag Cloud</h2>
 
@@ -71,11 +67,11 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Dec 03 15:01:19 PST 2015
+                    DATE: Thu Dec 03 16:05:29 PST 2015
                     SOURCE: /Users/zmhbh/Desktop/team-new/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/app/views/climate/tagCloud.scala.html
-                    HASH: 429870a6db25b63da092d6879fd10aa8f5dcda80
-                    MATRIX: 866->0|1363->469|1392->470|1438->488|1467->489|1558->553|1587->554|1621->561|1649->562|1712->622
-                    LINES: 29->1|39->11|39->11|40->12|40->12|42->14|42->14|43->15|43->15|51->25
+                    HASH: 86d1fed3dd10cf6cd4ff11d25588acefc1606562
+                    MATRIX: 866->0|1362->468|1391->469|1437->487|1466->488|1557->552|1586->553|1620->560|1648->561|1708->618
+                    LINES: 29->1|38->10|38->10|39->11|39->11|41->13|41->13|42->14|42->14|47->21
                     -- GENERATED --
                 */
             

@@ -35,7 +35,7 @@ GET			/climate/oneService									controllers.ClimateServiceController.oneServic
 #Workflow
 GET         /workflow/createWorkflow                            controllers.WorkflowController.createWorkflow()
 GET         /workflows                                          controllers.WorkflowController.workflows()
-GET         /workflow/workflowCreating                          controllers.WorkflowController.handleCreateWorkflow()
+POST        /workflow/workflowCreating                          controllers.WorkflowController.handleCreateWorkflow()
 GET         /workflow/linkTags                                  controllers.WorkflowController.linkTags()
 GET         /workflow/disWorkflow                               controllers.WorkflowController.displayWorkflow(id: Long)
 GET         /workflow/getTop10WorkflowsByViewCount              controllers.WorkflowController.workflowsByTopViewCount()

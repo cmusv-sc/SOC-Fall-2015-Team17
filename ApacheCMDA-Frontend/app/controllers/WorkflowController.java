@@ -6,9 +6,11 @@ import models.DataSet;
 import models.metadata.ClimateService;
 import models.metadata.Tag;
 import models.metadata.Workflow;
+import org.apache.commons.codec.binary.Base64;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.data.Form;
+import play.mvc.Http;
 import play.mvc.Result;
 import util.APICall;
 import views.html.climate.addClimateServices;
@@ -17,6 +19,13 @@ import views.html.climate.linkTags;
 import views.html.climate.*;
 
 import java.text.SimpleDateFormat;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by zmhbh on 11/18/15.
@@ -44,10 +53,44 @@ public class WorkflowController extends Controller{
         Form<Workflow> dc = workflowForm.bindFromRequest();
         ObjectNode jsonData = Json.newObject();
         JsonNode response=null;
+        String image="";
         try {
            String title = dc.field("Title").value();
            String description = dc.field("Description").value();
-           String image = dc.field("Image").value();
+
+            Http.MultipartFormData body = request().body().asMultipartFormData();
+            Http.MultipartFormData.FilePart resourceFile = body.getFile("Image");
+            //process image
+            if (resourceFile != null) {
+                String fileName = resourceFile.getFilename();
+                File file = resourceFile.getFile();
+                System.out.println("The file exists");
+
+                FileInputStream fis = new FileInputStream(file);
+                //create FileInputStream which obtains input bytes from a file in a file system
+                //FileInputStream is meant for reading streams of raw bytes such as image data. For reading streams of characters, consider using FileReader.
+
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                byte[] buf = new byte[1024];
+                try {
+                    for (int readNum; (readNum = fis.read(buf)) != -1;) {
+                        //Writes to this byte array output stream
+                        bos.write(buf, 0, readNum);
+                        System.out.println("read " + readNum + " bytes,");
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(WorkflowController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                byte[] bytes = bos.toByteArray();
+                image = Base64.encodeBase64String(bytes);
+                System.out.println(image);
+
+            } else {
+                System.out.print("File was empty");
+            }
+
+
            String contributor = dc.field("Contributor").value();
            String instruction = dc.field("Instruction").value();
            String dataset = dc.field("Dataset").value();

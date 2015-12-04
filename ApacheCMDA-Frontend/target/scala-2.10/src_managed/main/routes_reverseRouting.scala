@@ -1,6 +1,6 @@
 // @SOURCE:/Users/zmhbh/Desktop/team-new/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/conf/routes
-// @HASH:803cbb51ed0b8e10c345ae933202144818fb3ce2
-// @DATE:Thu Dec 03 14:07:57 PST 2015
+// @HASH:743b30118fe6b631ad3c0c5138f508a28ec9f0c4
+// @DATE:Thu Dec 03 16:18:16 PST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -152,7 +152,7 @@ def createWorkflow(): Call = {
 
 // @LINE:38
 def handleCreateWorkflow(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "workflow/workflowCreating")
+   Call("POST", _prefix + { _defaultPrefix } + "workflow/workflowCreating")
 }
                                                 
 
@@ -537,7 +537,7 @@ def handleCreateWorkflow : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.WorkflowController.handleCreateWorkflow",
    """
       function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/workflowCreating"})
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/workflowCreating"})
       }
    """
 )
@@ -970,7 +970,7 @@ def createWorkflow(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 
 // @LINE:38
 def handleCreateWorkflow(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.WorkflowController.handleCreateWorkflow(), HandlerDef(this, "controllers.WorkflowController", "handleCreateWorkflow", Seq(), "GET", """""", _prefix + """workflow/workflowCreating""")
+   controllers.WorkflowController.handleCreateWorkflow(), HandlerDef(this, "controllers.WorkflowController", "handleCreateWorkflow", Seq(), "POST", """""", _prefix + """workflow/workflowCreating""")
 )
                       
 

@@ -1,6 +1,6 @@
 // @SOURCE:/Users/zmhbh/Desktop/team-new/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/conf/routes
-// @HASH:803cbb51ed0b8e10c345ae933202144818fb3ce2
-// @DATE:Thu Dec 03 14:07:57 PST 2015
+// @HASH:743b30118fe6b631ad3c0c5138f508a28ec9f0c4
+// @DATE:Thu Dec 03 16:18:16 PST 2015
 
 package controllers;
 
