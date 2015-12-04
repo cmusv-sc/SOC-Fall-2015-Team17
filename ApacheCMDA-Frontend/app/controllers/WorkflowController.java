@@ -133,8 +133,16 @@ public class WorkflowController extends Controller{
         image="data:image/png;base64,"+image;
         workflow.setImage(image);
 
+        String tags=null;
+        for(Tag tag: workflow.getTags()){
+            tags+=tag.getName()+", ";
+        }
+        if(tags!=null){
+            tags=tags.substring(0,tags.length()-2);
+        }
+
         workflow.updateViewCount(id);
-        return ok(workflowDisplay.render(workflow));
+        return ok(workflowDisplay.render(workflow,tags));
     }
 
 

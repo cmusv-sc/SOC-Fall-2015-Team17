@@ -1,3 +1,4 @@
 .DS_Store
 ApacheCMDA-Backend/target/*
 ApacheCMDA-Frontend/project/target/*
+ApacheCMDA-Frontend/target/*

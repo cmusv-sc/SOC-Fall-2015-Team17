@@ -1,4 +1,4 @@
-@(workflow: metadata.Workflow)
+@(workflow: metadata.Workflow, tags:String)
 
 @import helper._
 
@@ -59,6 +59,12 @@
                     <td id="Dataset">Workflow Dataset</td>
                     <td><span type="text" class="form-control"
                               id="Dataset_detail">@workflow.getDataset()</td>
+                </tr>
+
+                <tr id="Tags_trID">
+                    <td id="Tags">Workflow tags</td>
+                    <td><span type="text" class="form-control"
+                              id="Tags_detail">@tags</td>
                 </tr>
 
                 </tbody>

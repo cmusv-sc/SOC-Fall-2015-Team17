@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object workflowDisplay extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[metadata.Workflow,play.api.templates.HtmlFormat.Appendable] {
+object workflowDisplay extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[metadata.Workflow,String,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(workflow: metadata.Workflow):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(workflow: metadata.Workflow, tags:String):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 def /*5.2*/scripts/*5.9*/:play.api.templates.HtmlFormat.Appendable = {_display_(
@@ -36,7 +36,7 @@ Seq[Any](format.raw/*5.13*/("""
           """),format.raw/*10.11*/("""}"""),format.raw/*10.12*/(""");
   </script>
 """)))};
-Seq[Any](format.raw/*1.31*/("""
+Seq[Any](format.raw/*1.44*/("""
 
 """),format.raw/*4.1*/("""
 """),format.raw/*12.2*/("""
@@ -91,6 +91,12 @@ Seq[Any](format.raw/*1.31*/("""
                               id="Dataset_detail">"""),_display_(Seq[Any](/*61.52*/workflow/*61.60*/.getDataset())),format.raw/*61.73*/("""</td>
                 </tr>
 
+                <tr id="Tags_trID">
+                    <td id="Tags">Workflow tags</td>
+                    <td><span type="text" class="form-control"
+                              id="Tags_detail">"""),_display_(Seq[Any](/*67.49*/tags)),format.raw/*67.53*/("""</td>
+                </tr>
+
                 </tbody>
             </table>
         </form>
@@ -107,7 +113,7 @@ Seq[Any](format.raw/*1.31*/("""
                 </thead>
                 <tbody>
                 <tr>
-                    <td><a id="workflowImgLink" href=""> <img src=""""),_display_(Seq[Any](/*80.69*/workflow/*80.77*/.getImage())),format.raw/*80.88*/(""""
+                    <td><a id="workflowImgLink" href=""> <img src=""""),_display_(Seq[Any](/*86.69*/workflow/*86.77*/.getImage())),format.raw/*86.88*/(""""
                                                               id="workflowImg" class="img-responsive">
                     </a></td>
                 </tr>
@@ -128,26 +134,26 @@ Seq[Any](format.raw/*1.31*/("""
 
 </div>
 
-"""),format.raw/*120.11*/("""
+"""),format.raw/*126.11*/("""
 
 
 """)))})))}
     }
     
-    def render(workflow:metadata.Workflow): play.api.templates.HtmlFormat.Appendable = apply(workflow)
+    def render(workflow:metadata.Workflow,tags:String): play.api.templates.HtmlFormat.Appendable = apply(workflow,tags)
     
-    def f:((metadata.Workflow) => play.api.templates.HtmlFormat.Appendable) = (workflow) => apply(workflow)
+    def f:((metadata.Workflow,String) => play.api.templates.HtmlFormat.Appendable) = (workflow,tags) => apply(workflow,tags)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Dec 03 17:05:32 PST 2015
+                    DATE: Thu Dec 03 20:19:20 PST 2015
                     SOURCE: /Users/zmhbh/Desktop/team-new/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/app/views/climate/workflowDisplay.scala.html
-                    HASH: ab8e425161785ef9438721abdb7dc15bf4910ce8
-                    MATRIX: 803->1|925->51|939->58|1023->62|1073->77|1087->83|1148->123|1257->205|1285->206|1325->218|1354->219|1409->30|1437->49|1465->235|1503->238|1538->264|1578->266|1616->269|1653->284|2339->934|2356->942|2389->953|2681->1209|2698->1217|2737->1234|3029->1490|3046->1498|3085->1515|3377->1771|3394->1779|3433->1796|3709->2036|3726->2044|3761->2057|4265->2525|4282->2533|4315->2544|4889->3662
-                    LINES: 26->1|29->5|29->5|31->5|32->6|32->6|32->6|34->8|34->8|36->10|36->10|39->1|41->4|42->12|44->14|44->14|44->14|46->16|46->16|71->41|71->41|71->41|76->46|76->46|76->46|81->51|81->51|81->51|86->56|86->56|86->56|91->61|91->61|91->61|110->80|110->80|110->80|131->120
+                    HASH: 61f52a5ce9aa225a5e1c841b5d57a58a7967132c
+                    MATRIX: 810->1|945->64|959->71|1043->75|1093->90|1107->96|1168->136|1277->218|1305->219|1345->231|1374->232|1429->43|1457->62|1485->248|1523->251|1558->277|1598->279|1636->282|1673->297|2359->947|2376->955|2409->966|2701->1222|2718->1230|2757->1247|3049->1503|3066->1511|3105->1528|3397->1784|3414->1792|3453->1809|3729->2049|3746->2057|3781->2070|4046->2299|4072->2303|4576->2771|4593->2779|4626->2790|5200->3908
+                    LINES: 26->1|29->5|29->5|31->5|32->6|32->6|32->6|34->8|34->8|36->10|36->10|39->1|41->4|42->12|44->14|44->14|44->14|46->16|46->16|71->41|71->41|71->41|76->46|76->46|76->46|81->51|81->51|81->51|86->56|86->56|86->56|91->61|91->61|91->61|97->67|97->67|116->86|116->86|116->86|137->126
                     -- GENERATED --
                 */
             
