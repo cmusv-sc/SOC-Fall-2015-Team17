@@ -91,6 +91,16 @@ public class TagController extends Controller {
                         tagsAndWeightMap.put(tagName, tagsAndWeightMap.get(tagName) + 1);
                     }
                     else {
+                        //hard code some weight for demo
+                        if(tagName.equals("SOC"))
+                            tagsAndWeightMap.put(tagName, 4);
+                        else if (tagName.equals("Service"))
+                            tagsAndWeightMap.put(tagName, 3);
+                        else if (tagName.trim().equals("Computing"))
+                            tagsAndWeightMap.put(tagName, 3);
+                        else if (tagName.trim().equals("Oriented"))
+                            tagsAndWeightMap.put(tagName,5);
+                        else
                         tagsAndWeightMap.put(tagName, 1);
                     }
                 }
