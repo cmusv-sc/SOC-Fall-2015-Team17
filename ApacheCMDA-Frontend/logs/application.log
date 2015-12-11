@@ -1,36 +1,54 @@
-2015-12-08 12:32:42,496 - [INFO] - from play in pool-4-thread-2 
+2015-12-11 02:27:23,825 - [INFO] - from play in pool-4-thread-3 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-12-08 12:33:56,789 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-11 02:28:18,466 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-12-08 12:33:57,009 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-11 02:28:18,725 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-12-08 12:33:58,040 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-11 02:28:21,073 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-12-08 12:33:58,460 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
-http://localhost:9034/tag/getAllTags/json
+2015-12-11 02:28:55,529 - [INFO] - from application in play-akka.actor.default-dispatcher-8 
+http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-08 12:34:48,030 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
-http://localhost:9034/tag/getAllTags/json
+2015-12-11 02:29:20,897 - [INFO] - from application in play-akka.actor.default-dispatcher-14 
+http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-08 12:35:54,895 - [INFO] - from application in play-akka.actor.default-dispatcher-22 
-http://localhost:9034/tag/getAllTags/json
+2015-12-11 02:29:52,850 - [INFO] - from application in play-akka.actor.default-dispatcher-18 
+http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-08 12:41:08,982 - [INFO] - from application in play-akka.actor.default-dispatcher-20 
-http://localhost:9034/tag/getAllTags/json
+2015-12-11 02:30:52,098 - [INFO] - from application in play-akka.actor.default-dispatcher-22 
+http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-08 12:57:26,069 - [INFO] - from application in play-akka.actor.default-dispatcher-39 
+2015-12-11 02:31:06,436 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
+http://localhost:9034/users/110
+
+2015-12-11 02:31:13,173 - [INFO] - from application in play-akka.actor.default-dispatcher-32 
 http://localhost:9034/workflow/getAllWorkflows/json
 
-2015-12-08 12:57:54,245 - [INFO] - from application in play-akka.actor.default-dispatcher-43 
+2015-12-11 02:31:20,260 - [INFO] - from application in play-akka.actor.default-dispatcher-32 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-12-11 02:31:48,222 - [INFO] - from application in play-akka.actor.default-dispatcher-29 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-12-11 02:38:13,529 - [INFO] - from application in play-akka.actor.default-dispatcher-42 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-12-11 02:38:53,763 - [INFO] - from application in play-akka.actor.default-dispatcher-45 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-12-11 02:39:28,619 - [INFO] - from application in play-akka.actor.default-dispatcher-46 
+http://localhost:9034/tag/getAllTags/json
+
+2015-12-11 02:39:30,387 - [INFO] - from application in play-akka.actor.default-dispatcher-58 
+http://localhost:9034/workflow/getAllWorkflows/json
+
+2015-12-11 02:39:33,536 - [INFO] - from application in play-akka.actor.default-dispatcher-59 
 http://localhost:9034/workflow/getTop10WorkflowByViewCount/json
 
-2015-12-08 12:58:11,796 - [INFO] - from application in play-akka.actor.default-dispatcher-43 
+2015-12-11 02:40:20,742 - [INFO] - from application in play-akka.actor.default-dispatcher-60 
 http://localhost:9034/workflow/getAllWorkflows/json
-
-2015-12-08 12:58:29,288 - [INFO] - from application in play-akka.actor.default-dispatcher-45 
-http://localhost:9034/tag/getAllTags/json
 

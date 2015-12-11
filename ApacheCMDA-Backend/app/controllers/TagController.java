@@ -101,7 +101,7 @@ public class TagController extends Controller {
                         else if (tagName.trim().equals("Oriented"))
                             tagsAndWeightMap.put(tagName,5);
                         else
-                        tagsAndWeightMap.put(tagName, 1);
+                            tagsAndWeightMap.put(tagName, 1);
                     }
                 }
             }

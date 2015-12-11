@@ -19,6 +19,8 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.User;
 import models.UserRepository;
 import play.mvc.*;
@@ -59,25 +61,28 @@ public class UserController extends Controller {
 		String password = json.path("password").asText();
 		String firstName = json.path("firstName").asText();
 		String lastName = json.path("lastName").asText();
-		String middleInitial = json.path("middleInitial").asText();
 	    String affiliation = json.path("affiliation").asText();
-	    String title = json.path("title").asText();
 	    String email = json.path("email").asText();
-	    String mailingAddress = json.path("mailingAddress").asText();
 	    String phoneNumber = json.path("phoneNumber").asText();
-	    String faxNumber = json.path("faxNumber").asText();
 	    String researchFields = json.path("researchFields").asText();
-	    String highestDegree = json.path("highestDegree").asText();
+		String description = json.path("description").asText();
 
 		try {
-			if (userRepository.findByUserName(userName).size()>0) {
+			if (userRepository.findByUserName(userName) != null) {
 				System.out.println("UserName has been used: " + userName);
 				return badRequest("UserName has been used");
 			}
-			User user = new User(userName, password, firstName, lastName, middleInitial, affiliation, title, email, mailingAddress, phoneNumber, faxNumber, researchFields, highestDegree);	
+			if (userRepository.findByEmail(email) != null) {
+				System.out.println("Email has been used: " + email);
+				return badRequest("Email has been used");
+			}
+			User user = new User(userName, password, firstName, lastName, affiliation, email, phoneNumber, researchFields, description);
 			userRepository.save(user);
 			System.out.println("User saved: " + user.getId());
-			return created(new Gson().toJson(user.getId()));
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode queryJson = mapper.createObjectNode();
+			queryJson.put("userId", user.getId());
+			return ok(queryJson.toString());
 		} catch (PersistenceException pe) {
 			pe.printStackTrace();
 			System.out.println("User not saved: " + firstName + " " + lastName);
@@ -107,15 +112,11 @@ public class UserController extends Controller {
 		// Parse JSON file
 		String firstName = json.path("firstName").asText();
 		String lastName = json.path("lastName").asText();
-		String middleInitial = json.path("middleInitial").asText();
 	    String affiliation = json.path("affiliation").asText();
-	    String title = json.path("title").asText();
 	    String email = json.path("email").asText();
-	    String mailingAddress = json.path("mailingAddress").asText();
 	    String phoneNumber = json.path("phoneNumber").asText();
-	    String faxNumber = json.path("faxNumber").asText();
 	    String researchFields = json.path("researchFields").asText();
-	    String highestDegree = json.path("highestDegree").asText();
+		String description = json.path("description").asText();
 		try {
 			User updateUser = userRepository.findOne(id);
 
@@ -123,14 +124,9 @@ public class UserController extends Controller {
 			updateUser.setLastName(lastName);
 			updateUser.setAffiliation(affiliation);
 			updateUser.setEmail(email);
-			updateUser.setFaxNumber(faxNumber);
-			updateUser.setHighestDegree(highestDegree);
-			updateUser.setMailingAddress(mailingAddress);
-			updateUser.setMiddleInitial(middleInitial);
 			updateUser.setPhoneNumber(phoneNumber);
 			updateUser.setResearchFields(researchFields);
-			updateUser.setTitle(title);
-			
+			updateUser.setDescription(description);
 			User savedUser = userRepository.save(updateUser);
 			System.out.println("User updated: " + savedUser.getFirstName()
 					+ " " + savedUser.getLastName());
@@ -185,24 +181,44 @@ public class UserController extends Controller {
 		}
 		String email = json.path("email").asText();
 		String password = json.path("password").asText();
-		User user = userRepository.findByEmail(email);
-		if (user.getPassword().equals(password)) {
-			System.out.println("User is valid");
-			return ok("User is valid");
-		} else {
-			System.out.println("User is not valid");
-			return badRequest("User is not valid");
+
+		try{
+			User user = null;
+			user = userRepository.findByEmail(email);
+			if(user == null){
+				System.out.println("User is not valid");
+				return badRequest(new Gson().toJson("0"));
+			}
+
+			if (user.getPassword().equals(password)) {
+
+				System.out.println("User is valid");
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode queryJson = mapper.createObjectNode();
+
+				queryJson.put("userId", user.getId());
+				return ok(queryJson.toString());
+			} else {
+				System.out.println("User is not valid");
+				return badRequest(new Gson().toJson("0"));
+			}
+		} catch (PersistenceException pe) {
+			pe.printStackTrace();
+			System.out.println("User is not valid" );
+			return badRequest(new Gson().toJson("0"));
 		}
+
+
 	}
 	
-	public Result deleteUserByUserNameandPassword(String userName, String password) {
+	public Result deleteUserByUserNameAndPassword(String userName, String password) {
 		try {
-			List<User> users = userRepository.findByUserName(userName);
-			if (users.size()==0) {
+			User user = userRepository.findByUserName(userName);
+			if (user == null) {
 				System.out.println("User is not existed");
 				return badRequest("User is not existed");
 			}
-			User user = users.get(0);
+
 			if (user.getPassword().equals(password)) {
 				System.out.println("User is deleted: "+user.getId());
 				userRepository.delete(user);

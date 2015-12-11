@@ -38,6 +38,9 @@ GET         /workflows                                          controllers.Work
 POST        /workflow/workflowCreating                          controllers.WorkflowController.handleCreateWorkflow()
 GET         /workflow/linkTags                                  controllers.WorkflowController.linkTags()
 GET         /workflow/disWorkflow                               controllers.WorkflowController.displayWorkflow(id: Long)
+GET         /workflow/newLevel/:id                              controllers.WorkflowController.addLevelComment(id: Long)
+GET         /workflow/newComment/:wid/:lid                      controllers.WorkflowController.addSingleComment(wid: Long, lid: Long)
+
 GET         /workflow/getTop10WorkflowsByViewCount              controllers.WorkflowController.workflowsByTopViewCount()
 
 # Tag Model
@@ -54,3 +57,23 @@ GET 		/climate/getSearchResult				 			controllers.DatasetController.getSearchRes
 
 #Map static resources from the /public folder to the /assets URL path
 GET     	/assets/*file               						controllers.Assets.at(path="/public", file)
+
+#User Profiles
+GET 		/users/myProfile									controllers.UserController.profile()
+GET 		/users/allUsers									    controllers.UserController.allUsers()
+GET 		/users/signUpForm									controllers.UserController.signUpForm()
+GET 		/users/signUp									    controllers.UserController.signUp()
+GET 		/users/signInForm									controllers.UserController.signInForm()
+GET 		/users/signIn									    controllers.UserController.signIn()
+GET 		/users/signOut									    controllers.UserController.signOut()
+GET 		/users/friends									    controllers.UserController.showFriends()
+GET 		/users/addfriend									controllers.UserController.addFriend(userId : Long, isSubscribe : Boolean)
+GET 		/users/deletefriend									controllers.UserController.deleteFriend(userId : Long, isSubscribe : Boolean)
+GET 		/users/addSubscribe									controllers.UserController.addSubscribe(userId : Long, isFriend : Boolean)
+GET 		/users/deleteSubscribe							    controllers.UserController.deleteSubscribe(userId : Long, isFriend : Boolean)
+GET 		/users/subscriptions							    controllers.UserController.showSubscriptions()
+GET 		/users/account/:userId							    controllers.UserController.oneUser(userId : Long)
+GET 		/usergroups/all							            controllers.UserGroupController.showGroups()
+GET 		/usergroups/addGroup							    controllers.UserGroupController.newGroup()
+GET 		/usergroups/addGroupForm							controllers.UserGroupController.newGroupForm()
+GET 		/usergroups/:userGroupId							controllers.UserGroupController.oneGroup(userGroupId : Long)

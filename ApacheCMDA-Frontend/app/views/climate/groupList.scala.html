@@ -1,0 +1,81 @@
+@*******************************************************************************
+* Licensed to the Apache Software Foundation (ASF) under one or more		   *
+* contributor license agreements.  See the NOTICE file distributed with	   *
+* this work for additional information regarding copyright ownership.         *
+* The ASF licenses this file to You under the Apache License, Version 2.0     *
+* (the "License"); you may not use this file except in compliance with        *
+* the License.  You may obtain a copy of the License at                       *
+*                                                                             *
+*    http://www.apache.org/licenses/LICENSE-2.0                               *
+*																			   *
+* Unless required by applicable law or agreed to in writing, software         *
+* distributed under the License is distributed on an "AS IS" BASIS,           *
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.    *
+* See the License for the specific language governing permissions and         *
+* limitations under the License.											   *
+*******************************************************************************@
+
+@(groups: List[UserGroup], groupForm: play.data.Form[UserGroup])
+
+@import helper._
+
+@scripts = {
+<script src='@routes.Assets.at("javascripts/edit_button.js")'></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//alert($("#url").text());
+	});
+	</script>
+}
+
+@main("Group List", scripts) {
+
+@flash_message()
+
+<h1>User Groups</h1>
+<h2>@groups.size() Groups found</h2>
+<div style="overflow-y:scroll">
+
+	<div class="navbar-collapse collapse" style="height:">
+		<ul class="nav navbar-nav navbar-right">
+
+			<li class="dropdown"><a href="#"
+									class="dropdown-toggle" data-toggle="dropdown">Actions<b
+					class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="@{routes.UserGroupController.newGroupForm()}"><font size="2">New User Group</font></a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<table class="table table-striped table-bordered table-condensed tablesorter" id ="myTable">
+		<thead>
+		<tr >
+
+			<th style = "vertical-align: top;" class="col-md-1 header">Id</th>
+			<th style = "vertical-align: top;" class="col-md-2">Group Name</th>
+			<th style = "vertical-align: top;" class="col-md-1">Summary</th>
+			<th style = "vertical-align: top;" class="col-md-1">Number of Users</th>
+
+		</tr>
+		</thead>
+		<tbody>
+		@for(group <- groups){
+		<tr>
+
+			<td><font size="2">@group.id</font></td>
+
+			<td><a href="@{routes.UserGroupController.oneGroup(group.id)}"><font size="2">@group.groupName</font></a></td>
+
+			<td><font size="2">@group.summary</font></td>
+			<td><font size="2">@group.listOfUser.size()</font></td>
+
+		</tr>
+
+		}
+		</tbody>
+	</table>
+
+</div>
+}

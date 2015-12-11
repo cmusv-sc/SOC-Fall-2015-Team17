@@ -1,6 +1,6 @@
-// @SOURCE:/Users/zmhbh/Desktop/team-new/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/conf/routes
-// @HASH:743b30118fe6b631ad3c0c5138f508a28ec9f0c4
-// @DATE:Thu Dec 03 16:18:16 PST 2015
+// @SOURCE:/home/SOC-Fall-2015/Dev/ApacheCMDA-Frontend/conf/routes
+// @HASH:b280afcb27ef3b6bca563e93e249ae75776e531f
+// @DATE:Fri Dec 11 02:08:34 UTC 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,14 +13,34 @@ import play.libs.F
 import Router.queryString
 
 
+// @LINE:79
+// @LINE:78
+// @LINE:77
+// @LINE:76
+// @LINE:75
+// @LINE:74
+// @LINE:73
+// @LINE:72
+// @LINE:71
+// @LINE:70
+// @LINE:69
+// @LINE:68
+// @LINE:67
+// @LINE:66
+// @LINE:65
+// @LINE:64
+// @LINE:63
+// @LINE:62
+// @LINE:59
 // @LINE:56
-// @LINE:53
-// @LINE:52
-// @LINE:51
+// @LINE:55
+// @LINE:54
+// @LINE:50
+// @LINE:49
+// @LINE:48
 // @LINE:47
-// @LINE:46
-// @LINE:45
 // @LINE:44
+// @LINE:42
 // @LINE:41
 // @LINE:40
 // @LINE:39
@@ -50,11 +70,11 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:56
+// @LINE:59
 class ReverseAssets {
     
 
-// @LINE:56
+// @LINE:59
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -63,32 +83,32 @@ def at(file:String): Call = {
 }
                           
 
+// @LINE:50
+// @LINE:49
+// @LINE:48
 // @LINE:47
-// @LINE:46
-// @LINE:45
-// @LINE:44
 class ReverseTagController {
     
 
-// @LINE:47
+// @LINE:50
 def tagCloud(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "tag/tagCloud")
 }
                                                 
 
-// @LINE:46
+// @LINE:49
 def oneService(url:String = null): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "tag/oneService" + queryString(List(if(url == null) None else Some(implicitly[QueryStringBindable[String]].unbind("url", url)))))
 }
                                                 
 
-// @LINE:45
+// @LINE:48
 def tags(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "tag/tags")
 }
                                                 
 
-// @LINE:44
+// @LINE:47
 def home(email:String = null, vfile:String = null, dataset:String = null): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "tag" + queryString(List(if(email == null) None else Some(implicitly[QueryStringBindable[String]].unbind("email", email)), if(vfile == null) None else Some(implicitly[QueryStringBindable[String]].unbind("vfile", vfile)), if(dataset == null) None else Some(implicitly[QueryStringBindable[String]].unbind("dataset", dataset)))))
 }
@@ -117,6 +137,8 @@ def aboutUs(): Call = {
 }
                           
 
+// @LINE:44
+// @LINE:42
 // @LINE:41
 // @LINE:40
 // @LINE:39
@@ -125,6 +147,12 @@ def aboutUs(): Call = {
 // @LINE:36
 class ReverseWorkflowController {
     
+
+// @LINE:42
+def addSingleComment(wid:Long, lid:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "workflow/newComment/" + implicitly[PathBindable[Long]].unbind("wid", wid) + "/" + implicitly[PathBindable[Long]].unbind("lid", lid))
+}
+                                                
 
 // @LINE:40
 def displayWorkflow(id:Long): Call = {
@@ -138,9 +166,15 @@ def workflows(): Call = {
 }
                                                 
 
-// @LINE:41
+// @LINE:44
 def workflowsByTopViewCount(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "workflow/getTop10WorkflowsByViewCount")
+}
+                                                
+
+// @LINE:41
+def addLevelComment(id:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "workflow/newLevel/" + implicitly[PathBindable[Long]].unbind("id", id))
 }
                                                 
 
@@ -206,25 +240,163 @@ def newReport(): Call = {
 }
                           
 
-// @LINE:53
-// @LINE:52
-// @LINE:51
+// @LINE:79
+// @LINE:78
+// @LINE:77
+// @LINE:76
+class ReverseUserGroupController {
+    
+
+// @LINE:77
+def newGroup(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "usergroups/addGroup")
+}
+                                                
+
+// @LINE:79
+def oneGroup(userGroupId:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "usergroups/" + implicitly[PathBindable[Long]].unbind("userGroupId", userGroupId))
+}
+                                                
+
+// @LINE:78
+def newGroupForm(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "usergroups/addGroupForm")
+}
+                                                
+
+// @LINE:76
+def showGroups(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "usergroups/all")
+}
+                                                
+    
+}
+                          
+
+// @LINE:75
+// @LINE:74
+// @LINE:73
+// @LINE:72
+// @LINE:71
+// @LINE:70
+// @LINE:69
+// @LINE:68
+// @LINE:67
+// @LINE:66
+// @LINE:65
+// @LINE:64
+// @LINE:63
+// @LINE:62
+class ReverseUserController {
+    
+
+// @LINE:65
+def signUp(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/signUp")
+}
+                                                
+
+// @LINE:64
+def signUpForm(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/signUpForm")
+}
+                                                
+
+// @LINE:73
+def deleteSubscribe(userId:Long, isFriend:Boolean): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/deleteSubscribe" + queryString(List(Some(implicitly[QueryStringBindable[Long]].unbind("userId", userId)), Some(implicitly[QueryStringBindable[Boolean]].unbind("isFriend", isFriend)))))
+}
+                                                
+
+// @LINE:69
+def showFriends(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/friends")
+}
+                                                
+
+// @LINE:62
+def profile(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/myProfile")
+}
+                                                
+
+// @LINE:74
+def showSubscriptions(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/subscriptions")
+}
+                                                
+
+// @LINE:68
+def signOut(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/signOut")
+}
+                                                
+
+// @LINE:75
+def oneUser(userId:Long): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/account/" + implicitly[PathBindable[Long]].unbind("userId", userId))
+}
+                                                
+
+// @LINE:66
+def signInForm(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/signInForm")
+}
+                                                
+
+// @LINE:71
+def deleteFriend(userId:Long, isSubscribe:Boolean): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/deletefriend" + queryString(List(Some(implicitly[QueryStringBindable[Long]].unbind("userId", userId)), Some(implicitly[QueryStringBindable[Boolean]].unbind("isSubscribe", isSubscribe)))))
+}
+                                                
+
+// @LINE:63
+def allUsers(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/allUsers")
+}
+                                                
+
+// @LINE:70
+def addFriend(userId:Long, isSubscribe:Boolean): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/addfriend" + queryString(List(Some(implicitly[QueryStringBindable[Long]].unbind("userId", userId)), Some(implicitly[QueryStringBindable[Boolean]].unbind("isSubscribe", isSubscribe)))))
+}
+                                                
+
+// @LINE:72
+def addSubscribe(userId:Long, isFriend:Boolean): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/addSubscribe" + queryString(List(Some(implicitly[QueryStringBindable[Long]].unbind("userId", userId)), Some(implicitly[QueryStringBindable[Boolean]].unbind("isFriend", isFriend)))))
+}
+                                                
+
+// @LINE:67
+def signIn(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "users/signIn")
+}
+                                                
+    
+}
+                          
+
+// @LINE:56
+// @LINE:55
+// @LINE:54
 class ReverseDatasetController {
     
 
-// @LINE:53
+// @LINE:56
 def getSearchResult(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/getSearchResult")
 }
                                                 
 
-// @LINE:52
+// @LINE:55
 def searchDataset(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/searchDataSet")
 }
                                                 
 
-// @LINE:51
+// @LINE:54
 def datasetList(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "climate/datasets")
 }
@@ -340,14 +512,34 @@ def deleteClimateService(): Call = {
                   
 
 
+// @LINE:79
+// @LINE:78
+// @LINE:77
+// @LINE:76
+// @LINE:75
+// @LINE:74
+// @LINE:73
+// @LINE:72
+// @LINE:71
+// @LINE:70
+// @LINE:69
+// @LINE:68
+// @LINE:67
+// @LINE:66
+// @LINE:65
+// @LINE:64
+// @LINE:63
+// @LINE:62
+// @LINE:59
 // @LINE:56
-// @LINE:53
-// @LINE:52
-// @LINE:51
+// @LINE:55
+// @LINE:54
+// @LINE:50
+// @LINE:49
+// @LINE:48
 // @LINE:47
-// @LINE:46
-// @LINE:45
 // @LINE:44
+// @LINE:42
 // @LINE:41
 // @LINE:40
 // @LINE:39
@@ -377,11 +569,11 @@ def deleteClimateService(): Call = {
 // @LINE:6
 package controllers.javascript {
 
-// @LINE:56
+// @LINE:59
 class ReverseAssets {
     
 
-// @LINE:56
+// @LINE:59
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -395,14 +587,14 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:50
+// @LINE:49
+// @LINE:48
 // @LINE:47
-// @LINE:46
-// @LINE:45
-// @LINE:44
 class ReverseTagController {
     
 
-// @LINE:47
+// @LINE:50
 def tagCloud : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.TagController.tagCloud",
    """
@@ -413,7 +605,7 @@ def tagCloud : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:46
+// @LINE:49
 def oneService : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.TagController.oneService",
    """
@@ -424,7 +616,7 @@ def oneService : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:45
+// @LINE:48
 def tags : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.TagController.tags",
    """
@@ -435,7 +627,7 @@ def tags : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:44
+// @LINE:47
 def home : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.TagController.home",
    """
@@ -479,6 +671,8 @@ def aboutUs : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:44
+// @LINE:42
 // @LINE:41
 // @LINE:40
 // @LINE:39
@@ -487,6 +681,17 @@ def aboutUs : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:36
 class ReverseWorkflowController {
     
+
+// @LINE:42
+def addSingleComment : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.WorkflowController.addSingleComment",
+   """
+      function(wid,lid) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/newComment/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("wid", wid) + "/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("lid", lid)})
+      }
+   """
+)
+                        
 
 // @LINE:40
 def displayWorkflow : JavascriptReverseRoute = JavascriptReverseRoute(
@@ -510,12 +715,23 @@ def workflows : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:41
+// @LINE:44
 def workflowsByTopViewCount : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.WorkflowController.workflowsByTopViewCount",
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/getTop10WorkflowsByViewCount"})
+      }
+   """
+)
+                        
+
+// @LINE:41
+def addLevelComment : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.WorkflowController.addLevelComment",
+   """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "workflow/newLevel/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id)})
       }
    """
 )
@@ -623,13 +839,241 @@ def newReport : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:53
-// @LINE:52
-// @LINE:51
+// @LINE:79
+// @LINE:78
+// @LINE:77
+// @LINE:76
+class ReverseUserGroupController {
+    
+
+// @LINE:77
+def newGroup : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserGroupController.newGroup",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "usergroups/addGroup"})
+      }
+   """
+)
+                        
+
+// @LINE:79
+def oneGroup : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserGroupController.oneGroup",
+   """
+      function(userGroupId) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "usergroups/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("userGroupId", userGroupId)})
+      }
+   """
+)
+                        
+
+// @LINE:78
+def newGroupForm : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserGroupController.newGroupForm",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "usergroups/addGroupForm"})
+      }
+   """
+)
+                        
+
+// @LINE:76
+def showGroups : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserGroupController.showGroups",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "usergroups/all"})
+      }
+   """
+)
+                        
+    
+}
+              
+
+// @LINE:75
+// @LINE:74
+// @LINE:73
+// @LINE:72
+// @LINE:71
+// @LINE:70
+// @LINE:69
+// @LINE:68
+// @LINE:67
+// @LINE:66
+// @LINE:65
+// @LINE:64
+// @LINE:63
+// @LINE:62
+class ReverseUserController {
+    
+
+// @LINE:65
+def signUp : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.signUp",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/signUp"})
+      }
+   """
+)
+                        
+
+// @LINE:64
+def signUpForm : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.signUpForm",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/signUpForm"})
+      }
+   """
+)
+                        
+
+// @LINE:73
+def deleteSubscribe : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.deleteSubscribe",
+   """
+      function(userId,isFriend) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/deleteSubscribe" + _qS([(""" + implicitly[QueryStringBindable[Long]].javascriptUnbind + """)("userId", userId), (""" + implicitly[QueryStringBindable[Boolean]].javascriptUnbind + """)("isFriend", isFriend)])})
+      }
+   """
+)
+                        
+
+// @LINE:69
+def showFriends : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.showFriends",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/friends"})
+      }
+   """
+)
+                        
+
+// @LINE:62
+def profile : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.profile",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/myProfile"})
+      }
+   """
+)
+                        
+
+// @LINE:74
+def showSubscriptions : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.showSubscriptions",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/subscriptions"})
+      }
+   """
+)
+                        
+
+// @LINE:68
+def signOut : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.signOut",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/signOut"})
+      }
+   """
+)
+                        
+
+// @LINE:75
+def oneUser : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.oneUser",
+   """
+      function(userId) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/account/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("userId", userId)})
+      }
+   """
+)
+                        
+
+// @LINE:66
+def signInForm : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.signInForm",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/signInForm"})
+      }
+   """
+)
+                        
+
+// @LINE:71
+def deleteFriend : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.deleteFriend",
+   """
+      function(userId,isSubscribe) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/deletefriend" + _qS([(""" + implicitly[QueryStringBindable[Long]].javascriptUnbind + """)("userId", userId), (""" + implicitly[QueryStringBindable[Boolean]].javascriptUnbind + """)("isSubscribe", isSubscribe)])})
+      }
+   """
+)
+                        
+
+// @LINE:63
+def allUsers : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.allUsers",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/allUsers"})
+      }
+   """
+)
+                        
+
+// @LINE:70
+def addFriend : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.addFriend",
+   """
+      function(userId,isSubscribe) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/addfriend" + _qS([(""" + implicitly[QueryStringBindable[Long]].javascriptUnbind + """)("userId", userId), (""" + implicitly[QueryStringBindable[Boolean]].javascriptUnbind + """)("isSubscribe", isSubscribe)])})
+      }
+   """
+)
+                        
+
+// @LINE:72
+def addSubscribe : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.addSubscribe",
+   """
+      function(userId,isFriend) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/addSubscribe" + _qS([(""" + implicitly[QueryStringBindable[Long]].javascriptUnbind + """)("userId", userId), (""" + implicitly[QueryStringBindable[Boolean]].javascriptUnbind + """)("isFriend", isFriend)])})
+      }
+   """
+)
+                        
+
+// @LINE:67
+def signIn : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.UserController.signIn",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/signIn"})
+      }
+   """
+)
+                        
+    
+}
+              
+
+// @LINE:56
+// @LINE:55
+// @LINE:54
 class ReverseDatasetController {
     
 
-// @LINE:53
+// @LINE:56
 def getSearchResult : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DatasetController.getSearchResult",
    """
@@ -640,7 +1084,7 @@ def getSearchResult : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:52
+// @LINE:55
 def searchDataset : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DatasetController.searchDataset",
    """
@@ -651,7 +1095,7 @@ def searchDataset : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:51
+// @LINE:54
 def datasetList : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DatasetController.datasetList",
    """
@@ -830,14 +1274,34 @@ def deleteClimateService : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:79
+// @LINE:78
+// @LINE:77
+// @LINE:76
+// @LINE:75
+// @LINE:74
+// @LINE:73
+// @LINE:72
+// @LINE:71
+// @LINE:70
+// @LINE:69
+// @LINE:68
+// @LINE:67
+// @LINE:66
+// @LINE:65
+// @LINE:64
+// @LINE:63
+// @LINE:62
+// @LINE:59
 // @LINE:56
-// @LINE:53
-// @LINE:52
-// @LINE:51
+// @LINE:55
+// @LINE:54
+// @LINE:50
+// @LINE:49
+// @LINE:48
 // @LINE:47
-// @LINE:46
-// @LINE:45
 // @LINE:44
+// @LINE:42
 // @LINE:41
 // @LINE:40
 // @LINE:39
@@ -868,11 +1332,11 @@ def deleteClimateService : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:56
+// @LINE:59
 class ReverseAssets {
     
 
-// @LINE:56
+// @LINE:59
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -881,32 +1345,32 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
+// @LINE:50
+// @LINE:49
+// @LINE:48
 // @LINE:47
-// @LINE:46
-// @LINE:45
-// @LINE:44
 class ReverseTagController {
     
 
-// @LINE:47
+// @LINE:50
 def tagCloud(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.TagController.tagCloud(), HandlerDef(this, "controllers.TagController", "tagCloud", Seq(), "GET", """""", _prefix + """tag/tagCloud""")
 )
                       
 
-// @LINE:46
+// @LINE:49
 def oneService(url:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.TagController.oneService(url), HandlerDef(this, "controllers.TagController", "oneService", Seq(classOf[String]), "GET", """""", _prefix + """tag/oneService""")
 )
                       
 
-// @LINE:45
+// @LINE:48
 def tags(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.TagController.tags(), HandlerDef(this, "controllers.TagController", "tags", Seq(), "GET", """""", _prefix + """tag/tags""")
 )
                       
 
-// @LINE:44
+// @LINE:47
 def home(email:String, vfile:String, dataset:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.TagController.home(email, vfile, dataset), HandlerDef(this, "controllers.TagController", "home", Seq(classOf[String], classOf[String], classOf[String]), "GET", """ Tag Model""", _prefix + """tag""")
 )
@@ -935,6 +1399,8 @@ def aboutUs(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:44
+// @LINE:42
 // @LINE:41
 // @LINE:40
 // @LINE:39
@@ -943,6 +1409,12 @@ def aboutUs(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:36
 class ReverseWorkflowController {
     
+
+// @LINE:42
+def addSingleComment(wid:Long, lid:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.WorkflowController.addSingleComment(wid, lid), HandlerDef(this, "controllers.WorkflowController", "addSingleComment", Seq(classOf[Long], classOf[Long]), "GET", """""", _prefix + """workflow/newComment/$wid<[^/]+>/$lid<[^/]+>""")
+)
+                      
 
 // @LINE:40
 def displayWorkflow(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
@@ -956,9 +1428,15 @@ def workflows(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:41
+// @LINE:44
 def workflowsByTopViewCount(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.WorkflowController.workflowsByTopViewCount(), HandlerDef(this, "controllers.WorkflowController", "workflowsByTopViewCount", Seq(), "GET", """""", _prefix + """workflow/getTop10WorkflowsByViewCount""")
+)
+                      
+
+// @LINE:41
+def addLevelComment(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.WorkflowController.addLevelComment(id), HandlerDef(this, "controllers.WorkflowController", "addLevelComment", Seq(classOf[Long]), "GET", """""", _prefix + """workflow/newLevel/$id<[^/]+>""")
 )
                       
 
@@ -1024,25 +1502,163 @@ def newReport(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:53
-// @LINE:52
-// @LINE:51
+// @LINE:79
+// @LINE:78
+// @LINE:77
+// @LINE:76
+class ReverseUserGroupController {
+    
+
+// @LINE:77
+def newGroup(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserGroupController.newGroup(), HandlerDef(this, "controllers.UserGroupController", "newGroup", Seq(), "GET", """""", _prefix + """usergroups/addGroup""")
+)
+                      
+
+// @LINE:79
+def oneGroup(userGroupId:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserGroupController.oneGroup(userGroupId), HandlerDef(this, "controllers.UserGroupController", "oneGroup", Seq(classOf[Long]), "GET", """""", _prefix + """usergroups/$userGroupId<[^/]+>""")
+)
+                      
+
+// @LINE:78
+def newGroupForm(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserGroupController.newGroupForm(), HandlerDef(this, "controllers.UserGroupController", "newGroupForm", Seq(), "GET", """""", _prefix + """usergroups/addGroupForm""")
+)
+                      
+
+// @LINE:76
+def showGroups(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserGroupController.showGroups(), HandlerDef(this, "controllers.UserGroupController", "showGroups", Seq(), "GET", """""", _prefix + """usergroups/all""")
+)
+                      
+    
+}
+                          
+
+// @LINE:75
+// @LINE:74
+// @LINE:73
+// @LINE:72
+// @LINE:71
+// @LINE:70
+// @LINE:69
+// @LINE:68
+// @LINE:67
+// @LINE:66
+// @LINE:65
+// @LINE:64
+// @LINE:63
+// @LINE:62
+class ReverseUserController {
+    
+
+// @LINE:65
+def signUp(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.signUp(), HandlerDef(this, "controllers.UserController", "signUp", Seq(), "GET", """""", _prefix + """users/signUp""")
+)
+                      
+
+// @LINE:64
+def signUpForm(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.signUpForm(), HandlerDef(this, "controllers.UserController", "signUpForm", Seq(), "GET", """""", _prefix + """users/signUpForm""")
+)
+                      
+
+// @LINE:73
+def deleteSubscribe(userId:Long, isFriend:Boolean): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.deleteSubscribe(userId, isFriend), HandlerDef(this, "controllers.UserController", "deleteSubscribe", Seq(classOf[Long], classOf[Boolean]), "GET", """""", _prefix + """users/deleteSubscribe""")
+)
+                      
+
+// @LINE:69
+def showFriends(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.showFriends(), HandlerDef(this, "controllers.UserController", "showFriends", Seq(), "GET", """""", _prefix + """users/friends""")
+)
+                      
+
+// @LINE:62
+def profile(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.profile(), HandlerDef(this, "controllers.UserController", "profile", Seq(), "GET", """User Profiles""", _prefix + """users/myProfile""")
+)
+                      
+
+// @LINE:74
+def showSubscriptions(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.showSubscriptions(), HandlerDef(this, "controllers.UserController", "showSubscriptions", Seq(), "GET", """""", _prefix + """users/subscriptions""")
+)
+                      
+
+// @LINE:68
+def signOut(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.signOut(), HandlerDef(this, "controllers.UserController", "signOut", Seq(), "GET", """""", _prefix + """users/signOut""")
+)
+                      
+
+// @LINE:75
+def oneUser(userId:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.oneUser(userId), HandlerDef(this, "controllers.UserController", "oneUser", Seq(classOf[Long]), "GET", """""", _prefix + """users/account/$userId<[^/]+>""")
+)
+                      
+
+// @LINE:66
+def signInForm(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.signInForm(), HandlerDef(this, "controllers.UserController", "signInForm", Seq(), "GET", """""", _prefix + """users/signInForm""")
+)
+                      
+
+// @LINE:71
+def deleteFriend(userId:Long, isSubscribe:Boolean): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.deleteFriend(userId, isSubscribe), HandlerDef(this, "controllers.UserController", "deleteFriend", Seq(classOf[Long], classOf[Boolean]), "GET", """""", _prefix + """users/deletefriend""")
+)
+                      
+
+// @LINE:63
+def allUsers(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.allUsers(), HandlerDef(this, "controllers.UserController", "allUsers", Seq(), "GET", """""", _prefix + """users/allUsers""")
+)
+                      
+
+// @LINE:70
+def addFriend(userId:Long, isSubscribe:Boolean): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.addFriend(userId, isSubscribe), HandlerDef(this, "controllers.UserController", "addFriend", Seq(classOf[Long], classOf[Boolean]), "GET", """""", _prefix + """users/addfriend""")
+)
+                      
+
+// @LINE:72
+def addSubscribe(userId:Long, isFriend:Boolean): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.addSubscribe(userId, isFriend), HandlerDef(this, "controllers.UserController", "addSubscribe", Seq(classOf[Long], classOf[Boolean]), "GET", """""", _prefix + """users/addSubscribe""")
+)
+                      
+
+// @LINE:67
+def signIn(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.UserController.signIn(), HandlerDef(this, "controllers.UserController", "signIn", Seq(), "GET", """""", _prefix + """users/signIn""")
+)
+                      
+    
+}
+                          
+
+// @LINE:56
+// @LINE:55
+// @LINE:54
 class ReverseDatasetController {
     
 
-// @LINE:53
+// @LINE:56
 def getSearchResult(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DatasetController.getSearchResult(), HandlerDef(this, "controllers.DatasetController", "getSearchResult", Seq(), "GET", """""", _prefix + """climate/getSearchResult""")
 )
                       
 
-// @LINE:52
+// @LINE:55
 def searchDataset(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DatasetController.searchDataset(), HandlerDef(this, "controllers.DatasetController", "searchDataset", Seq(), "GET", """""", _prefix + """climate/searchDataSet""")
 )
                       
 
-// @LINE:51
+// @LINE:54
 def datasetList(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DatasetController.datasetList(), HandlerDef(this, "controllers.DatasetController", "datasetList", Seq(), "GET", """Keyword search""", _prefix + """climate/datasets""")
 )

@@ -1,0 +1,96 @@
+@*******************************************************************************
+* Licensed to the Apache Software Foundation (ASF) under one or more           *
+* contributor license agreements.  See the NOTICE file distributed with       *
+* this work for additional information regarding copyright ownership.         *
+* The ASF licenses this file to You under the Apache License, Version 2.0     *
+* (the "License"); you may not use this file except in compliance with        *
+* the License.  You may obtain a copy of the License at                       *
+*                                                                             *
+*    http://www.apache.org/licenses/LICENSE-2.0                               *
+*                                                                               *
+* Unless required by applicable law or agreed to in writing, software         *
+* distributed under the License is distributed on an "AS IS" BASIS,           *
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.    *
+* See the License for the specific language governing permissions and         *
+* limitations under the License.                                               *
+*******************************************************************************@
+
+@(user: User, isFriend: Boolean, isSubscribed: Boolean)
+
+@import helper._
+
+@main("User Profile") {
+
+@flash_message()
+
+<h1>User @user.userName</h1>
+<div style="overflow-y:scroll">
+
+	<div class="navbar-collapse collapse" style="height:">
+		<ul class="nav navbar-nav navbar-right">
+
+			<li class="dropdown"><a href="#"
+									class="dropdown-toggle" data-toggle="dropdown">Actions<b
+					class="caret"></b></a>
+				<ul class="dropdown-menu">
+
+					@if(isFriend) {
+					<li><a href="@{routes.UserController.deleteFriend(user.id, isSubscribed)}"><font size="2">Unfriend</font></a></li>
+					}else{
+					<li><a href="@{routes.UserController.addFriend(user.id, isSubscribed)}"><font size="2">Add Friend</font></a></li>
+					}
+					@if(isSubscribed) {
+					<li><a href="@{routes.UserController.deleteSubscribe(user.id, isFriend)}"><font size="2">Unsubscribe</font></a></li>
+					}else{
+					<li><a href="@{routes.UserController.addSubscribe(user.id, isFriend)}"><font size="2">Subscribe</font></a></li>
+					}
+
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<table class="table table-striped table-bordered table-condensed tablesorter" id="myTable">
+
+		<tr>
+			<th style="vertical-align: top;" class="col-md-2">Id</th>
+			<td><font size="2">@user.id</font></td>
+		</tr>
+		<tr>
+			<th style="vertical-align: top;" class="col-md-1">User Name</th>
+			<td><font size="2">@user.userName</font></td>
+		</tr>
+		<tr>
+			<th style="vertical-align: top;" class="col-md-2">First Name</th>
+			<td><font size="2">@user.firstName</font></td>
+		</tr>
+		<tr>
+			<th style="vertical-align: top;" class="col-md-1">Last Name</th>
+			<td><font size="2">@user.lastName</font></td>
+		</tr>
+		<tr>
+			<th style="vertical-align: top;" class="col-md-2">Affiliation</th>
+			<td><font size="2">@user.affiliation</font></td>
+		</tr>
+		<tr>
+			<th style="vertical-align: top;" class="col-md-1">Phone Number</th>
+			<td><font size="2">@user.phoneNumber</font></td>
+		</tr>
+		<tr>
+			<th style="vertical-align: top;" class="col-md-2">Research Fields</th>
+			<td><font size="2">@user.researchFields</font></td>
+		</tr>
+		<tr>
+			<th style="vertical-align: top;" class="col-md-1">Email</th>
+			<td><font size="2">@user.email</font></td>
+		</tr>
+		<tr>
+			<th style="vertical-align: top;" class="col-md-2">Description</th>
+			<td><font size="2">@user.description</font></td>
+		</tr>
+
+	</table>
+
+</div>
+
+}

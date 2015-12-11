@@ -95,6 +95,33 @@
                     </ul>
                 </li>
 
+                @if(session.get("userId") == null || session.get("userId").trim.isEmpty) {
+                    <li class="dropdown"><a href="#"
+                    class="dropdown-toggle" data-toggle="dropdown">Sign In / Sign Up<b
+                    class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@routes.UserController.signInForm">Sign In</a></li>
+                            <li><a href="@routes.UserController.signUpForm">Sign Up</a></li>
+                        </ul>
+                    </li>
+                }else{
+                    <li class="dropdown"><a href="#"
+                    class="dropdown-toggle" data-toggle="dropdown">My Profile<b
+                    class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@routes.UserController.profile">Profile</a></li>
+                            @if(session.get("userId").equals("112")) {
+                                <li><a href="@routes.UserController.allUsers">All Users</a></li>
+                            }
+                            <li><a href="@routes.UserController.showFriends">Friends</a></li>
+                            <li><a href="@routes.UserController.showSubscriptions">Subscriptions</a></li>
+                            <li><a href="@routes.UserGroupController.showGroups">User Groups</a></li>
+                            <li><a href="@routes.UserController.signOut">Sign Out</a></li>
+                        </ul>
+                    </li>
+                }
+
+
             </ul>
         </div>
         <!--/.nav-collapse -->

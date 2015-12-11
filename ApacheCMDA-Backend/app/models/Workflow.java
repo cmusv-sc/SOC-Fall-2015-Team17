@@ -23,180 +23,194 @@ import javax.persistence.*;
 @Entity
 public class Workflow {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @Column(unique = true)
-    private String title;
-    private String description;
-    private String image;
-    private String contributor;
-    private String instruction;
-    private String dataset;
-    // for popularity
-    private int viewCount;
-    private int usageCount;
-    private int commentCount;
-    private int downloadCount;
-    private int referenceCount;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Column(unique = true)
+	private String title;
+	private String description;
+	private String image;
+	private String contributor;
+	private String instruction;
+	private String dataset;
+	private Long userId;
+	// for popularity
+	private int viewCount = 0;
+	private int usageCount = 0;
+	private int commentCount = 0;
+	private int downloadCount = 0;
+	private int referenceCount = 0;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    @JoinTable(name = "WorkflowAndTag", joinColumns = { @JoinColumn(name ="workflowId", referencedColumnName = "id")}, inverseJoinColumns = { @JoinColumn(name = "tagId", referencedColumnName = "id") })
-    private List<Tag> tags;
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+	@JoinTable(name = "WorkflowAndTag", joinColumns = { @JoinColumn(name ="workflowId", referencedColumnName = "id")}, inverseJoinColumns = { @JoinColumn(name = "tagId", referencedColumnName = "id") })
+	private List<Tag> tagList;
 
-/*
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
-    @JoinTable(name = "WorkflowAndUser", joinColumns = {@JoinColumn(name = "workflowId", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "userId", referencedColumnName = "id")})
-    private List<User> userSet;
-
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
-    @JoinTable(name = "WorkflowAndClimateService", joinColumns = {@JoinColumn(name = "workflowId", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "climateServiceId", referencedColumnName = "id")})
-    private List<ClimateService> climateServiceSet;
-*/
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
+	@JoinTable(name = "WorkflowAndLevel", joinColumns = { @JoinColumn(name ="workflowId", referencedColumnName = "id")}, inverseJoinColumns = { @JoinColumn(name = "levelId", referencedColumnName = "id") })
+	private List<Level> levelList;
 
 
-    public Workflow() {
-    }
 
-    public Workflow(String title, String description, String image, String contributor, String instruction, String dataset) {
-        this.title = title;
-        this.description = description;
-        this.image = image;
-        this.contributor = contributor;
-        this.instruction = instruction;
-        this.dataset = dataset;
-    }
+	public Workflow() {
+	}
 
-    public long getId() {
-        return id;
-    }
+	public Workflow(String title, String description, String image, String contributor, String instruction, String dataset, List<Tag> tagList, List<Level> levelList, Long userId
+					, int viewCount, int usageCount, int commentCount, int downloadCount, int referenceCount) {
+		this.title = title;
+		this.description = description;
+		this.image = image;
+		this.contributor = contributor;
+		this.instruction = instruction;
+		this.dataset = dataset;
+		this.tagList = tagList;
+		this.levelList = levelList;
+		this.userId = userId;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+		this.viewCount =viewCount;
+		this.usageCount = usageCount;
+		this.commentCount = commentCount;
+		this.downloadCount = downloadCount;
+		this.referenceCount = referenceCount;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public Long getUserId() {
+		return userId;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public int getViewCount() {
+		return viewCount;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
 
-    public String getImage() {
-        return image;
-    }
+	public int getUsageCount() {
+		return usageCount;
+	}
 
-    public void setImage(String image) {
-        this.image = image;
-    }
+	public void setUsageCount(int usageCount) {
+		this.usageCount = usageCount;
+	}
 
-    public String getContributor() {
-        return contributor;
-    }
+	public int getCommentCount() {
+		return commentCount;
+	}
 
-    public void setContributor(String contributor) {
-        this.contributor = contributor;
-    }
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
+	}
 
-    public String getInstruction() {
-        return instruction;
-    }
+	public int getDownloadCount() {
+		return downloadCount;
+	}
 
-    public void setInstruction(String instruction) {
-        this.instruction = instruction;
-    }
+	public void setDownloadCount(int downloadCount) {
+		this.downloadCount = downloadCount;
+	}
 
-    public String getDataset() {
-        return dataset;
-    }
+	public int getReferenceCount() {
+		return referenceCount;
+	}
 
-    public void setDataset(String dataset) {
-        this.dataset = dataset;
-    }
+	public void setReferenceCount(int referenceCount) {
+		this.referenceCount = referenceCount;
+	}
 
-/*    public List<User> getUserSet() {
-        return userSet;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setUserSet(List<User> userSet) {
-        this.userSet = userSet;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public List<ClimateService> getClimateServiceSet() {
-        return climateServiceSet;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setClimateServiceSet(List<ClimateService> climateServiceSet) {
-        this.climateServiceSet = climateServiceSet;
-    }*/
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public int getViewCount() {
-        return viewCount;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setViewCount(int viewCount) {
-        this.viewCount = viewCount;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public int getUsageCount() {
-        return usageCount;
-    }
+	public String getImage() {
+		return image;
+	}
 
-    public void setUsageCount(int usageCount) {
-        this.usageCount = usageCount;
-    }
+	public void setImage(String image) {
+		this.image = image;
+	}
 
-    public int getCommentCount() {
-        return commentCount;
-    }
+	public String getContributor() {
+		return contributor;
+	}
 
-    public void setCommentCount(int commentCount) {
-        this.commentCount = commentCount;
-    }
+	public void setContributor(String contributor) {
+		this.contributor = contributor;
+	}
 
-    public int getDownloadCount() {
-        return downloadCount;
-    }
+	public String getInstruction() {
+		return instruction;
+	}
 
-    public void setDownloadCount(int downloadCount) {
-        this.downloadCount = downloadCount;
-    }
+	public void setInstruction(String instruction) {
+		this.instruction = instruction;
+	}
 
-    public int getReferenceCount() {
-        return referenceCount;
-    }
+	public List<Tag> getTagList() {
+		return tagList;
+	}
 
-    public void setReferenceCount(int referenceCount) {
-        this.referenceCount = referenceCount;
-    }
+	public void setTagList(List<Tag> tagList) {
+		this.tagList = tagList;
+	}
 
-    public List<Tag> getTags() {
-        return tags;
-    }
+	public List<Level> getLevelList() {
+		return levelList;
+	}
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
+	public void setLevelList(List<Level> levelList) {
+		this.levelList = levelList;
+	}
 
-    @Override
-    public String toString() {
-        return "Workflow{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
-                ", contributor='" + contributor + '\'' +
-                ", instruction='" + instruction + '\'' +
-                ", dataset='" + dataset + '\'' +
-                '}';
-    }
+	public String getDataset() {
+		return dataset;
+	}
+
+	public void setDataset(String dataset) {
+		this.dataset = dataset;
+	}
+
+	public List<Tag> getTags() {
+		return tagList;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tagList = tags;
+	}
+
+	@Override
+	public String toString() {
+		return "Workflow{" +
+				"id=" + id +
+				", title='" + title + '\'' +
+				", description='" + description + '\'' +
+				", image='" + image + '\'' +
+				", contributor='" + contributor + '\'' +
+				", instruction='" + instruction + '\'' +
+				", dataset='" + dataset + '\'' +
+				'}';
+	}
 }
