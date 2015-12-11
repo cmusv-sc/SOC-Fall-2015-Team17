@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object workflowDisplay extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[metadata.Workflow,play.data.Form[metadata.Comment],play.api.templates.HtmlFormat.Appendable] {
+object workflowDisplay extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[metadata.Workflow,play.data.Form[metadata.Comment],String,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(workflow: metadata.Workflow, commentForm: play.data.Form[metadata.Comment]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(workflow: metadata.Workflow, commentForm: play.data.Form[metadata.Comment],tags:String):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 def /*6.2*/scripts/*6.9*/:play.api.templates.HtmlFormat.Appendable = {_display_(
@@ -36,7 +36,7 @@ Seq[Any](format.raw/*6.13*/("""
           """),format.raw/*11.11*/("""}"""),format.raw/*11.12*/(""");
   </script>
 """)))};
-Seq[Any](format.raw/*1.78*/("""
+Seq[Any](format.raw/*1.90*/("""
 
 
 """),format.raw/*5.1*/("""
@@ -92,6 +92,12 @@ Seq[Any](format.raw/*1.78*/("""
                                 id="Dataset_detail">"""),_display_(Seq[Any](/*62.54*/workflow/*62.62*/.getDataset())),format.raw/*62.75*/("""</td>
                             </tr>
 
+                            <tr id="Tags_trID">
+                                <td id="Tags">Workflow tags</td>
+                                <td><span type="text" class="form-control"
+                                          id="Tags_detail">"""),_display_(Seq[Any](/*68.61*/tags)),format.raw/*68.65*/("""</td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </form>
@@ -108,7 +114,7 @@ Seq[Any](format.raw/*1.78*/("""
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a id="workflowImgLink" href=""> <img src="http://i.stack.imgur.com/wpt5k.jpg"
+                                <td><a id="workflowImgLink" href=""> <img src=""""),_display_(Seq[Any](/*87.81*/workflow/*87.89*/.getImage())),format.raw/*87.100*/(""""
                                 id="workflowImg" class="img-responsive">
                                 </a></td>
                             </tr>
@@ -120,56 +126,56 @@ Seq[Any](format.raw/*1.78*/("""
             </div>
 
             <div style="clear: both;" align="center">
-                """),_display_(Seq[Any](/*93.18*/if(workflow.visibility == 1)/*93.46*/ {_display_(Seq[Any](format.raw/*93.48*/("""
-                    """),_display_(Seq[Any](/*94.22*/helper/*94.28*/.form(routes.WorkflowController.addLevelComment(workflow.getId()))/*94.94*/ {_display_(Seq[Any](format.raw/*94.96*/("""
+                """),_display_(Seq[Any](/*99.18*/if(workflow.visibility == 1)/*99.46*/ {_display_(Seq[Any](format.raw/*99.48*/("""
+                    """),_display_(Seq[Any](/*100.22*/helper/*100.28*/.form(routes.WorkflowController.addLevelComment(workflow.getId()))/*100.94*/ {_display_(Seq[Any](format.raw/*100.96*/("""
                         <div class = "form-group" id="commentForm">
-                        """),_display_(Seq[Any](/*96.26*/textarea(commentForm("Comment on workflow"), 'rows -> 3, 'style -> "width: 80%;"))),format.raw/*96.107*/("""
+                        """),_display_(Seq[Any](/*102.26*/textarea(commentForm("Comment on workflow"), 'rows -> 3, 'style -> "width: 80%;"))),format.raw/*102.107*/("""
                         </div>
                         <input class="btn" type="submit" value="Add Comments">
-                    """)))})),format.raw/*99.22*/("""
-                """)))})),format.raw/*100.18*/("""
-                """),_display_(Seq[Any](/*101.18*/for(level <- workflow.getLevelList()) yield /*101.55*/{_display_(Seq[Any](format.raw/*101.56*/("""
+                    """)))})),format.raw/*105.22*/("""
+                """)))})),format.raw/*106.18*/("""
+                """),_display_(Seq[Any](/*107.18*/for(level <- workflow.getLevelList()) yield /*107.55*/{_display_(Seq[Any](format.raw/*107.56*/("""
                     <div class="pi">
                         <div>
-                            <h5 class="alignleft"><a href = """"),_display_(Seq[Any](/*104.63*/{routes.UserController.oneUser(level.comment.userId)})),format.raw/*104.116*/("""">User """),_display_(Seq[Any](/*104.124*/level/*104.129*/.comment.userName)),format.raw/*104.146*/("""</a></h5>
-                            <h5 class="alignright">Posted on """),_display_(Seq[Any](/*105.63*/level/*105.68*/.comment.date.toString())),format.raw/*105.92*/("""</h5>
+                            <h5 class="alignleft"><a href = """"),_display_(Seq[Any](/*110.63*/{routes.UserController.oneUser(level.comment.userId)})),format.raw/*110.116*/("""">User """),_display_(Seq[Any](/*110.124*/level/*110.129*/.comment.userName)),format.raw/*110.146*/("""</a></h5>
+                            <h5 class="alignright">Posted on """),_display_(Seq[Any](/*111.63*/level/*111.68*/.comment.date.toString())),format.raw/*111.92*/("""</h5>
                         </div>
                         <div class="pcommenttext" style="clear: both;" align="left">
-                            <p class="fontnewroman">"""),_display_(Seq[Any](/*108.54*/level/*108.59*/.comment.comments)),format.raw/*108.76*/("""</p>
+                            <p class="fontnewroman">"""),_display_(Seq[Any](/*114.54*/level/*114.59*/.comment.comments)),format.raw/*114.76*/("""</p>
                         </div>
                         <div class="pcomment">
-                            """),_display_(Seq[Any](/*111.30*/if(level.commentList.size()>0)/*111.60*/ {_display_(Seq[Any](format.raw/*111.62*/("""
+                            """),_display_(Seq[Any](/*117.30*/if(level.commentList.size()>0)/*117.60*/ {_display_(Seq[Any](format.raw/*117.62*/("""
                                 <h5 class="alignleft">Replies</h5>
-                            """)))})),format.raw/*113.30*/("""
-                            """),_display_(Seq[Any](/*114.30*/for(eachComment <- level.commentList) yield /*114.67*/{_display_(Seq[Any](format.raw/*114.68*/("""
+                            """)))})),format.raw/*119.30*/("""
+                            """),_display_(Seq[Any](/*120.30*/for(eachComment <- level.commentList) yield /*120.67*/{_display_(Seq[Any](format.raw/*120.68*/("""
                                 <div class="pcontent" style="clear: both;">
                                     <div>
-                                        <h5 class="alignleft"><a href = """"),_display_(Seq[Any](/*117.75*/{routes.UserController.oneUser(eachComment.userId)})),format.raw/*117.126*/("""">User """),_display_(Seq[Any](/*117.134*/eachComment/*117.145*/.userName)),format.raw/*117.154*/("""</a></h5>
-                                        <h5 class="alignright">Posted on """),_display_(Seq[Any](/*118.75*/eachComment/*118.86*/.date.toString())),format.raw/*118.102*/("""</h5>
+                                        <h5 class="alignleft"><a href = """"),_display_(Seq[Any](/*123.75*/{routes.UserController.oneUser(eachComment.userId)})),format.raw/*123.126*/("""">User """),_display_(Seq[Any](/*123.134*/eachComment/*123.145*/.userName)),format.raw/*123.154*/("""</a></h5>
+                                        <h5 class="alignright">Posted on """),_display_(Seq[Any](/*124.75*/eachComment/*124.86*/.date.toString())),format.raw/*124.102*/("""</h5>
                                     </div>
                                     <div class="pcommenttext" style="clear: both;" align="left">
-                                        <p class="fontnewroman">"""),_display_(Seq[Any](/*121.66*/eachComment/*121.77*/.comments)),format.raw/*121.86*/("""</p>
+                                        <p class="fontnewroman">"""),_display_(Seq[Any](/*127.66*/eachComment/*127.77*/.comments)),format.raw/*127.86*/("""</p>
                                     </div>
                                 </div>
-                            """)))})),format.raw/*124.30*/("""
-                            """),_display_(Seq[Any](/*125.30*/if(workflow.visibility == 1)/*125.58*/ {_display_(Seq[Any](format.raw/*125.60*/("""
-                                """),_display_(Seq[Any](/*126.34*/helper/*126.40*/.form(routes.WorkflowController.addSingleComment(workflow.getId(), level.id))/*126.117*/ {_display_(Seq[Any](format.raw/*126.119*/("""
+                            """)))})),format.raw/*130.30*/("""
+                            """),_display_(Seq[Any](/*131.30*/if(workflow.visibility == 1)/*131.58*/ {_display_(Seq[Any](format.raw/*131.60*/("""
+                                """),_display_(Seq[Any](/*132.34*/helper/*132.40*/.form(routes.WorkflowController.addSingleComment(workflow.getId(), level.id))/*132.117*/ {_display_(Seq[Any](format.raw/*132.119*/("""
                                     <div class = "form-group">
-                                    """),_display_(Seq[Any](/*128.38*/textarea(commentForm("Reply on this comment"), 'rows -> 3, 'style -> "width: 80%;"))),format.raw/*128.121*/("""
+                                    """),_display_(Seq[Any](/*134.38*/textarea(commentForm("Reply on this comment"), 'rows -> 3, 'style -> "width: 80%;"))),format.raw/*134.121*/("""
                                     </div>
                                     <input class="btn" type="submit" value="Reply">
-                                    """)))})),format.raw/*131.38*/("""
-                            """)))})),format.raw/*132.30*/("""
+                                    """)))})),format.raw/*137.38*/("""
+                            """)))})),format.raw/*138.30*/("""
                         </div>
                     </div>
-                """)))})),format.raw/*135.18*/("""
+                """)))})),format.raw/*141.18*/("""
             </div>
 
         </body>
 
     </div>
 
-    """),format.raw/*161.15*/("""
+    """),format.raw/*167.15*/("""
 
 
 
@@ -177,26 +183,26 @@ Seq[Any](format.raw/*1.78*/("""
 
 
 
-    """),format.raw/*277.11*/("""
+    """),format.raw/*283.11*/("""
 
 
 """)))})))}
     }
     
-    def render(workflow:metadata.Workflow,commentForm:play.data.Form[metadata.Comment]): play.api.templates.HtmlFormat.Appendable = apply(workflow,commentForm)
+    def render(workflow:metadata.Workflow,commentForm:play.data.Form[metadata.Comment],tags:String): play.api.templates.HtmlFormat.Appendable = apply(workflow,commentForm,tags)
     
-    def f:((metadata.Workflow,play.data.Form[metadata.Comment]) => play.api.templates.HtmlFormat.Appendable) = (workflow,commentForm) => apply(workflow,commentForm)
+    def f:((metadata.Workflow,play.data.Form[metadata.Comment],String) => play.api.templates.HtmlFormat.Appendable) = (workflow,commentForm,tags) => apply(workflow,commentForm,tags)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Dec 11 02:08:33 UTC 2015
-                    SOURCE: /home/SOC-Fall-2015/Dev/ApacheCMDA-Frontend/app/views/climate/workflowDisplay.scala.html
-                    HASH: e5268e03f5b872a49389cba44d2bbc679bdca6b2
-                    MATRIX: 836->1|1005->99|1019->106|1103->110|1153->125|1167->131|1228->171|1337->253|1365->254|1405->266|1434->267|1489->77|1518->97|1546->283|1584->286|1619->312|1659->314|1697->317|1734->332|2570->1132|2587->1140|2620->1151|2962->1457|2979->1465|3018->1482|3360->1788|3377->1796|3416->1813|3758->2119|3775->2127|3814->2144|4140->2434|4157->2442|4192->2455|5298->3525|5335->3553|5375->3555|5433->3577|5448->3583|5523->3649|5563->3651|5693->3745|5797->3826|5961->3958|6012->3976|6067->3994|6121->4031|6161->4032|6328->4162|6405->4215|6451->4223|6467->4228|6508->4245|6617->4317|6632->4322|6679->4346|6891->4521|6906->4526|6946->4543|7095->4655|7135->4685|7176->4687|7306->4784|7373->4814|7427->4851|7467->4852|7697->5045|7772->5096|7818->5104|7840->5115|7873->5124|7994->5208|8015->5219|8055->5235|8303->5446|8324->5457|8356->5466|8505->5582|8572->5612|8610->5640|8651->5642|8722->5676|8738->5682|8826->5759|8868->5761|9006->5862|9113->5945|9311->6110|9374->6140|9483->6216|9566->6831|9607->10452
-                    LINES: 26->1|29->6|29->6|31->6|32->7|32->7|32->7|34->9|34->9|36->11|36->11|39->1|42->5|43->13|45->15|45->15|45->15|47->17|47->17|72->42|72->42|72->42|77->47|77->47|77->47|82->52|82->52|82->52|87->57|87->57|87->57|92->62|92->62|92->62|123->93|123->93|123->93|124->94|124->94|124->94|124->94|126->96|126->96|129->99|130->100|131->101|131->101|131->101|134->104|134->104|134->104|134->104|134->104|135->105|135->105|135->105|138->108|138->108|138->108|141->111|141->111|141->111|143->113|144->114|144->114|144->114|147->117|147->117|147->117|147->117|147->117|148->118|148->118|148->118|151->121|151->121|151->121|154->124|155->125|155->125|155->125|156->126|156->126|156->126|156->126|158->128|158->128|161->131|162->132|165->135|172->161|180->277
+                    DATE: Thu Dec 10 21:18:58 PST 2015
+                    SOURCE: /Users/zmhbh/Desktop/team/SOC-Fall-2015-Team17-Lead-Runyu-Shi/ApacheCMDA-Frontend/app/views/climate/workflowDisplay.scala.html
+                    HASH: ea7b5dbac066fae386f17016536273ede3b24e97
+                    MATRIX: 843->1|1024->111|1038->118|1122->122|1172->137|1186->143|1247->183|1356->265|1384->266|1424->278|1453->279|1508->89|1537->109|1565->295|1603->298|1638->324|1678->326|1716->329|1753->344|2589->1144|2606->1152|2639->1163|2981->1469|2998->1477|3037->1494|3379->1800|3396->1808|3435->1825|3777->2131|3794->2139|3833->2156|4159->2446|4176->2454|4211->2467|4536->2756|4562->2760|5218->3380|5235->3388|5269->3399|5722->3816|5759->3844|5799->3846|5858->3868|5874->3874|5950->3940|5991->3942|6122->4036|6227->4117|6392->4249|6443->4267|6498->4285|6552->4322|6592->4323|6759->4453|6836->4506|6882->4514|6898->4519|6939->4536|7048->4608|7063->4613|7110->4637|7322->4812|7337->4817|7377->4834|7526->4946|7566->4976|7607->4978|7737->5075|7804->5105|7858->5142|7898->5143|8128->5336|8203->5387|8249->5395|8271->5406|8304->5415|8425->5499|8446->5510|8486->5526|8734->5737|8755->5748|8787->5757|8936->5873|9003->5903|9041->5931|9082->5933|9153->5967|9169->5973|9257->6050|9299->6052|9437->6153|9544->6236|9742->6401|9805->6431|9914->6507|9997->7122|10038->10743
+                    LINES: 26->1|29->6|29->6|31->6|32->7|32->7|32->7|34->9|34->9|36->11|36->11|39->1|42->5|43->13|45->15|45->15|45->15|47->17|47->17|72->42|72->42|72->42|77->47|77->47|77->47|82->52|82->52|82->52|87->57|87->57|87->57|92->62|92->62|92->62|98->68|98->68|117->87|117->87|117->87|129->99|129->99|129->99|130->100|130->100|130->100|130->100|132->102|132->102|135->105|136->106|137->107|137->107|137->107|140->110|140->110|140->110|140->110|140->110|141->111|141->111|141->111|144->114|144->114|144->114|147->117|147->117|147->117|149->119|150->120|150->120|150->120|153->123|153->123|153->123|153->123|153->123|154->124|154->124|154->124|157->127|157->127|157->127|160->130|161->131|161->131|161->131|162->132|162->132|162->132|162->132|164->134|164->134|167->137|168->138|171->141|178->167|186->283
                     -- GENERATED --
                 */
             

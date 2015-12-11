@@ -137,8 +137,8 @@ public class WorkflowController extends Controller{
     }
 
 
-/*
-    public static Result displayWorkflow(long id){
+
+/*    public static Result displayWorkflow1(long id){
         Workflow workflow=Workflow.getWorkflow(id);
         String image=workflow.getImage();
         image="data:image/png;base64,"+image;
@@ -153,25 +153,51 @@ public class WorkflowController extends Controller{
         }
 
         workflow.updateViewCount(id);
-        return ok(workflowDisplay.render(workflow,tags));
-    }
-*/
+        return ok(workflowDisplay1.render(workflow,tags));
+    }*/
+
 
 
     public static Result displayWorkflow(long id) {
         String currID = session().get("userId");
         Workflow workflow=Workflow.getWorkflow(id, currID);
+        System.out.println("frontend workflow title: "+workflow.getTitle());
+        String image=workflow.getImage();
+        image="data:image/png;base64,"+image;
+        workflow.setImage(image);
+
+        String tags=null;
+        for(Tag tag: workflow.getTags()){
+            tags+=tag.getName()+", ";
+        }
+        if(tags!=null){
+            tags=tags.substring(0,tags.length()-2);
+        }
+
+        workflow.updateViewCount(id);
+
         List<Level> levelList = workflow.getLevelList();
         for(Level each : levelList) {
             System.out.println("Xin Display date: "+ each.comment.date);
         }
-        return ok(workflowDisplay.render(workflow, commentForm));
+        return ok(workflowDisplay.render(workflow, commentForm,tags));
     }
 
     public static Result viewComments(long id){
         String currID = session().get("userId");
         Workflow workflow=Workflow.getWorkflow(id, currID);
-        return ok(workflowDisplay.render(workflow, commentForm));
+        String image=workflow.getImage();
+        image="data:image/png;base64,"+image;
+        workflow.setImage(image);
+
+        String tags=null;
+        for(Tag tag: workflow.getTags()){
+            tags+=tag.getName()+", ";
+        }
+        if(tags!=null){
+            tags=tags.substring(0,tags.length()-2);
+        }
+        return ok(workflowDisplay.render(workflow, commentForm,tags));
     }
 
 
@@ -182,7 +208,19 @@ public class WorkflowController extends Controller{
         String currID = session().get("userId");
         Workflow.addLevelComment(String.valueOf(workFlowId), currID, comments);
         Workflow workflow=Workflow.getWorkflow(workFlowId, currID);
-        return ok(workflowDisplay.render(workflow, commentForm));
+        String image=workflow.getImage();
+        image="data:image/png;base64,"+image;
+        workflow.setImage(image);
+
+        String tags=null;
+        for(Tag tag: workflow.getTags()){
+            tags+=tag.getName()+", ";
+        }
+        if(tags!=null){
+            tags=tags.substring(0,tags.length()-2);
+        }
+
+        return ok(workflowDisplay.render(workflow, commentForm,tags));
     }
 
     public static Result addSingleComment(long workFlowId, long levelId) {
@@ -192,7 +230,19 @@ public class WorkflowController extends Controller{
         String currID = session().get("userId");
         Workflow.addSingleComment(String.valueOf(levelId), currID, comments);
         Workflow workflow=Workflow.getWorkflow(workFlowId, currID);
-        return ok(workflowDisplay.render(workflow, commentForm));
+
+        String image=workflow.getImage();
+        image="data:image/png;base64,"+image;
+        workflow.setImage(image);
+
+        String tags=null;
+        for(Tag tag: workflow.getTags()){
+            tags+=tag.getName()+", ";
+        }
+        if(tags!=null){
+            tags=tags.substring(0,tags.length()-2);
+        }
+        return ok(workflowDisplay.render(workflow, commentForm,tags));
     }
 
 

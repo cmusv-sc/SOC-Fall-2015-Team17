@@ -1,4 +1,4 @@
-@(workflow: metadata.Workflow, commentForm: play.data.Form[metadata.Comment])
+@(workflow: metadata.Workflow, commentForm: play.data.Form[metadata.Comment],tags:String)
 
 
 @import helper._
@@ -62,6 +62,12 @@
                                 id="Dataset_detail">@workflow.getDataset()</td>
                             </tr>
 
+                            <tr id="Tags_trID">
+                                <td id="Tags">Workflow tags</td>
+                                <td><span type="text" class="form-control"
+                                          id="Tags_detail">@tags</td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </form>
@@ -78,7 +84,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a id="workflowImgLink" href=""> <img src="http://i.stack.imgur.com/wpt5k.jpg"
+                                <td><a id="workflowImgLink" href=""> <img src="@workflow.getImage()"
                                 id="workflowImg" class="img-responsive">
                                 </a></td>
                             </tr>
