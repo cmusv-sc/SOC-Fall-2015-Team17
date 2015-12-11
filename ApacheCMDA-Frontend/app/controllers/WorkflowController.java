@@ -112,6 +112,10 @@ public class WorkflowController extends Controller{
             jsonData.put("instruction",instruction);
             jsonData.put("dataset",dataset);
             jsonData.put("tags",tags);
+
+            String currID = session().get("userId");
+            jsonData.put("userId",currID);
+            
              response= Workflow.create(jsonData);
 
             Application.flashMsg(response);
