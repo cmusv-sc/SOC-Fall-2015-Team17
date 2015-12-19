@@ -40,7 +40,7 @@ Currently we are providing APIs in 3 categores:
    - [Get all tags](#6)<br/>
    - [Get tags with weight](#7)<br/>
 
-**Category 2: Manage Forums**<br/>
+**Category 3: Manage Forums**<br/>
    - Please refer to other group: https://github.com/cmusv-sc/SOC-Fall-2015-Team18-Lead-Xin-Wan
    
 Detailed Usages:
