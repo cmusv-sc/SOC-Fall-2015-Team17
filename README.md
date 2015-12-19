@@ -26,9 +26,11 @@ Open Chrome: open /Applications/Google\ Chrome.app --args --disable-web-security
 5. type http://localhost:9000 in your browser
 
 Overview
-============
+---------
 Currently we are providing APIs as followed:
-1. <a name="1"></a>**GET WORKFLOW BY ID**
+
+
+1. **GET WORKFLOW BY ID**
     - **Purpose**: Query a specific workflow using workflow's Id.
     - **Method**: GET
     - **URL**: /workflow/:id
